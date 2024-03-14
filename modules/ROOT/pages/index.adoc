@@ -1,0 +1,3 @@
+= 1000kit documentation
+
+Welcome to the 1000kit documentation site. 
