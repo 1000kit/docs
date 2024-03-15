@@ -1,0 +1,1010 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Untitled :: 1000kit Docs</title>
+    <link rel="canonical" href="https://1000kit.github.io/tkit-quarkus/current/tkit-quarkus/includes/tkit-log-rs.html">
+    <meta name="generator" content="Antora 3.1.7">
+    <link rel="stylesheet" href="../../../../_/css/site.css">
+    <link rel="stylesheet" href="https://unpkg.com/bpmn-js/dist/assets/diagram-js.css">
+    <link rel="stylesheet" href="https://unpkg.com/bpmn-js/dist/assets/bpmn-font/css/bpmn.css">
+    <link rel="stylesheet" href="../../../../_/css/bpmn.css">
+    <script>var uiRootPath = '../../../../_'</script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://unpkg.com/bpmn-js/dist/bpmn-viewer.production.min.js"></script>
+    <script src="https://unpkg.com/dmn-js@11.0.2/dist/dmn-viewer.production.min.js"></script>
+    <script src="../../../../_/js/bpmn.js"></script>
+  </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="https://1000kit.github.io">1000kit Docs</a>
+      <button class="navbar-burger" data-target="topbar-nav">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+        <a class="navbar-item" href="/docs">Home</a>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link" href="#">Guides</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="/docs/docs-guides-quarkus/latest/">Quarkus</a>
+            <a class="navbar-item" href="/docs/docs-guides-bpmn/latest/">Bpmn</a>
+          </div>
+        </div>
+        <div class="navbar-item">
+          <span class="control">
+          </span>
+        </div>
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="tkit-quarkus" data-version="latest">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <h3 class="title"><a href="../index.html">1000kit Quarkus</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../index.html">1000kit Quarkus</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../tkit-context.html">Context</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../tkit-dataimport.html">Master Data Import</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../tkit-db-import.html">Test Database Import</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../tkit-jpa.html">JPA Persistence</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../tkit-jpa-models.html">JPA Persistence Models</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../tkit-jpa-tenant.html">JPA Persistence Tenant Resolver</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../tkit-log-cdi.html">CDI Log Interceptor</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../tkit-log-json.html">Json Log Format</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../tkit-log-rs.html">Rest Log Interceptor</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../tkit-log-rs.html">Rest Extension</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../tkit-log-rs.html">Rest Context Extension</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../tkit-log-rs.html">Rest Security</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">1000kit Quarkus</span>
+    <span class="version">latest</span>
+  </div>
+  <ul class="components">
+    <li class="component">
+      <a class="title" href="../../../../index/current/index.html">1000kit Docs</a>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../index/current/index.html">latest</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component is-current">
+      <a class="title" href="../index.html">1000kit Quarkus</a>
+      <ul class="versions">
+        <li class="version is-current is-latest">
+          <a href="../index.html">latest</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../../../../index/current/index.html" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+</nav>
+  <div class="edit-this-page"><a href="https://github.com/1000kit/tkit-quarkus/edit/main/docs/modules/tkit-quarkus/pages/includes/tkit-log-rs.adoc">Edit this Page</a></div>
+  </div>
+  <div class="content">
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<div class="paragraph configuration-legend">
+<p><span class="icon"><i class="fa fa-lock" title="Fixed at build time"></i></span> Configuration property fixed at build time - All other configuration properties are overridable at runtime</p>
+</div>
+<table class="tableblock frame-all grid-all stretch configuration-reference searchable">
+<colgroup>
+<col style="width: 80%;">
+<col style="width: 10%;">
+<col style="width: 10%;">
+</colgroup>
+<tbody>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock"><a id="tkit-log-rs_configuration"></a><a href="#tkit-log-rs_configuration">Configuration property</a></p></th>
+<th class="tableblock halign-left valign-middle"><p class="tableblock">Type</p></th>
+<th class="tableblock halign-left valign-middle"><p class="tableblock">Default</p></th>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><a id="tkit-log-rs_tkit-log-rs-enabled"></a><code><a href="#tkit-log-rs_tkit-log-rs-enabled">tkit.log.rs.enabled</a></code></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>Enabled or disable the rest log interceptor</p>
+</div>
+<div class="paragraph">
+<p>Environment variable: <code>TKIT_LOG_RS_ENABLED</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">boolean</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><code>true</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><a id="tkit-log-rs_tkit-log-rs-principal-enabled"></a><code><a href="#tkit-log-rs_tkit-log-rs-principal-enabled">tkit.log.rs.principal.enabled</a></code></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>Enabled or disable to add principal name to the application context.</p>
+</div>
+<div class="paragraph">
+<p>Environment variable: <code>TKIT_LOG_RS_PRINCIPAL_ENABLED</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">boolean</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><code>true</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><a id="tkit-log-rs_tkit-log-rs-correlation-id-enabled"></a><code><a href="#tkit-log-rs_tkit-log-rs-correlation-id-enabled">tkit.log.rs.correlation-id-enabled</a></code></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>Enabled or disable the correlation ID</p>
+</div>
+<div class="paragraph">
+<p>Environment variable: <code>TKIT_LOG_RS_CORRELATION_ID_ENABLED</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">boolean</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><code>true</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><a id="tkit-log-rs_tkit-log-rs-correlation-id-header"></a><code><a href="#tkit-log-rs_tkit-log-rs-correlation-id-header">tkit.log.rs.correlation-id-header</a></code></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>The correlation ID header</p>
+</div>
+<div class="paragraph">
+<p>Environment variable: <code>TKIT_LOG_RS_CORRELATION_ID_HEADER</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><code>X-Correlation-ID</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><a id="tkit-log-rs_tkit-log-rs-start-enabled"></a><code><a href="#tkit-log-rs_tkit-log-rs-start-enabled">tkit.log.rs.start.enabled</a></code></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>Enable or disable start message</p>
+</div>
+<div class="paragraph">
+<p>Environment variable: <code>TKIT_LOG_RS_START_ENABLED</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">boolean</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><code>false</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><a id="tkit-log-rs_tkit-log-rs-start-template"></a><code><a href="#tkit-log-rs_tkit-log-rs-start-template">tkit.log.rs.start.template</a></code></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>Message template 1 - HTTP method 2 - URI</p>
+</div>
+<div class="paragraph">
+<p>Environment variable: <code>TKIT_LOG_RS_START_TEMPLATE</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><code>%1$s %2$s started.</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><a id="tkit-log-rs_tkit-log-rs-end-enabled"></a><code><a href="#tkit-log-rs_tkit-log-rs-end-enabled">tkit.log.rs.end.enabled</a></code></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>Enable or disable end message</p>
+</div>
+<div class="paragraph">
+<p>Environment variable: <code>TKIT_LOG_RS_END_ENABLED</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">boolean</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><code>true</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><a id="tkit-log-rs_tkit-log-rs-end-template"></a><code><a href="#tkit-log-rs_tkit-log-rs-end-template">tkit.log.rs.end.template</a></code></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>Message template 1 - HTTP method 2 - path 3 - duration 4 - HTTP response code 5 - HTTP response name 6 - URI</p>
+</div>
+<div class="paragraph">
+<p>Environment variable: <code>TKIT_LOG_RS_END_TEMPLATE</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><code>%1$s %2$s [%4$s] [%3$ss]</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><a id="tkit-log-rs_tkit-log-rs-end-mdc-enabled"></a><code><a href="#tkit-log-rs_tkit-log-rs-end-mdc-enabled">tkit.log.rs.end.mdc.enabled</a></code></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>Enable duration time as MDC parameter</p>
+</div>
+<div class="paragraph">
+<p>Environment variable: <code>TKIT_LOG_RS_END_MDC_ENABLED</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">boolean</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><code>true</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><a id="tkit-log-rs_tkit-log-rs-end-mdc-duration-name"></a><code><a href="#tkit-log-rs_tkit-log-rs-end-mdc-duration-name">tkit.log.rs.end.mdc.duration.name</a></code></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>Duration MDC key name</p>
+</div>
+<div class="paragraph">
+<p>Environment variable: <code>TKIT_LOG_RS_END_MDC_DURATION_NAME</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><code>rs-time</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><a id="tkit-log-rs_tkit-log-rs-end-mdc-response-status-name"></a><code><a href="#tkit-log-rs_tkit-log-rs-end-mdc-response-status-name">tkit.log.rs.end.mdc.response-status.name</a></code></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>Response status MDC key name</p>
+</div>
+<div class="paragraph">
+<p>Environment variable: <code>TKIT_LOG_RS_END_MDC_RESPONSE_STATUS_NAME</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><code>rs-status</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><a id="tkit-log-rs_tkit-log-rs-error-enabled"></a><code><a href="#tkit-log-rs_tkit-log-rs-error-enabled">tkit.log.rs.error.enabled</a></code></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>Enable or disable error log message</p>
+</div>
+<div class="paragraph">
+<p>Environment variable: <code>TKIT_LOG_RS_ERROR_ENABLED</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">boolean</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><code>true</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><a id="tkit-log-rs_tkit-log-rs-regex-enabled"></a><code><a href="#tkit-log-rs_tkit-log-rs-regex-enabled">tkit.log.rs.regex.enabled</a></code></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>Enable or disable error log message</p>
+</div>
+<div class="paragraph">
+<p>Environment variable: <code>TKIT_LOG_RS_REGEX_ENABLED</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">boolean</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><code>false</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><a id="tkit-log-rs_tkit-log-rs-regex-exclude"></a><code><a href="#tkit-log-rs_tkit-log-rs-regex-exclude">tkit.log.rs.regex.exclude</a></code></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>Exclude request path patterns</p>
+</div>
+<div class="paragraph">
+<p>Environment variable: <code>TKIT_LOG_RS_REGEX_EXCLUDE</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">list of string</p></td>
+<td class="tableblock halign-left valign-middle"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><a id="tkit-log-rs_tkit-log-rs-payload-enabled"></a><code><a href="#tkit-log-rs_tkit-log-rs-payload-enabled">tkit.log.rs.payload.enabled</a></code></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>Enable or disable error log message</p>
+</div>
+<div class="paragraph">
+<p>Environment variable: <code>TKIT_LOG_RS_PAYLOAD_ENABLED</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">boolean</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><code>false</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><a id="tkit-log-rs_tkit-log-rs-payload-template"></a><code><a href="#tkit-log-rs_tkit-log-rs-payload-template">tkit.log.rs.payload.template</a></code></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>Payload message 1 - HTTP method 2 - URL 3 - payload</p>
+</div>
+<div class="paragraph">
+<p>Environment variable: <code>TKIT_LOG_RS_PAYLOAD_TEMPLATE</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><code>%1$s %2$s payload: %3$s</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><a id="tkit-log-rs_tkit-log-rs-payload-empty-body-enabled"></a><code><a href="#tkit-log-rs_tkit-log-rs-payload-empty-body-enabled">tkit.log.rs.payload.empty-body-enabled</a></code></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>Empty body enabled or disabled</p>
+</div>
+<div class="paragraph">
+<p>Environment variable: <code>TKIT_LOG_RS_PAYLOAD_EMPTY_BODY_ENABLED</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">boolean</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><code>true</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><a id="tkit-log-rs_tkit-log-rs-payload-empty-body-message"></a><code><a href="#tkit-log-rs_tkit-log-rs-payload-empty-body-message">tkit.log.rs.payload.empty-body-message</a></code></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>Empty body message</p>
+</div>
+<div class="paragraph">
+<p>Environment variable: <code>TKIT_LOG_RS_PAYLOAD_EMPTY_BODY_MESSAGE</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><code>&lt;EMPTY BODY&gt;</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><a id="tkit-log-rs_tkit-log-rs-payload-page-message"></a><code><a href="#tkit-log-rs_tkit-log-rs-payload-page-message">tkit.log.rs.payload.page-message</a></code></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>Page message</p>
+</div>
+<div class="paragraph">
+<p>Environment variable: <code>TKIT_LOG_RS_PAYLOAD_PAGE_MESSAGE</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><code>&#8230;&#8203;more&#8230;&#8203;</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><a id="tkit-log-rs_tkit-log-rs-payload-max-entity-size"></a><code><a href="#tkit-log-rs_tkit-log-rs-payload-max-entity-size">tkit.log.rs.payload.max-entity-size</a></code></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>Maximum entity size</p>
+</div>
+<div class="paragraph">
+<p>Environment variable: <code>TKIT_LOG_RS_PAYLOAD_MAX_ENTITY_SIZE</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">int</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><code>1048576</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><a id="tkit-log-rs_tkit-log-rs-payload-regex-enabled"></a><code><a href="#tkit-log-rs_tkit-log-rs-payload-regex-enabled">tkit.log.rs.payload.regex.enabled</a></code></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>Enable or disable error log message</p>
+</div>
+<div class="paragraph">
+<p>Environment variable: <code>TKIT_LOG_RS_PAYLOAD_REGEX_ENABLED</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">boolean</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><code>false</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><a id="tkit-log-rs_tkit-log-rs-payload-regex-exclude"></a><code><a href="#tkit-log-rs_tkit-log-rs-payload-regex-exclude">tkit.log.rs.payload.regex.exclude</a></code></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>Exclude request path patterns</p>
+</div>
+<div class="paragraph">
+<p>Environment variable: <code>TKIT_LOG_RS_PAYLOAD_REGEX_EXCLUDE</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">list of string</p></td>
+<td class="tableblock halign-left valign-middle"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><a id="tkit-log-rs_tkit-log-rs-client-enabled"></a><code><a href="#tkit-log-rs_tkit-log-rs-client-enabled">tkit.log.rs.client.enabled</a></code></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>Enable or disable rest-client log interceptor.</p>
+</div>
+<div class="paragraph">
+<p>Environment variable: <code>TKIT_LOG_RS_CLIENT_ENABLED</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">boolean</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><code>true</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><a id="tkit-log-rs_tkit-log-rs-client-regex-enabled"></a><code><a href="#tkit-log-rs_tkit-log-rs-client-regex-enabled">tkit.log.rs.client.regex.enabled</a></code></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>Enable or disable error log message</p>
+</div>
+<div class="paragraph">
+<p>Environment variable: <code>TKIT_LOG_RS_CLIENT_REGEX_ENABLED</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">boolean</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><code>false</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><a id="tkit-log-rs_tkit-log-rs-client-regex-exclude"></a><code><a href="#tkit-log-rs_tkit-log-rs-client-regex-exclude">tkit.log.rs.client.regex.exclude</a></code></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>Exclude request path patterns</p>
+</div>
+<div class="paragraph">
+<p>Environment variable: <code>TKIT_LOG_RS_CLIENT_REGEX_EXCLUDE</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">list of string</p></td>
+<td class="tableblock halign-left valign-middle"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><a id="tkit-log-rs_tkit-log-rs-client-payload-enabled"></a><code><a href="#tkit-log-rs_tkit-log-rs-client-payload-enabled">tkit.log.rs.client.payload.enabled</a></code></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>Enable or disable error log message</p>
+</div>
+<div class="paragraph">
+<p>Environment variable: <code>TKIT_LOG_RS_CLIENT_PAYLOAD_ENABLED</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">boolean</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><code>false</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><a id="tkit-log-rs_tkit-log-rs-client-payload-template"></a><code><a href="#tkit-log-rs_tkit-log-rs-client-payload-template">tkit.log.rs.client.payload.template</a></code></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>Payload message 1 - HTTP method 2 - URL 3 - payload</p>
+</div>
+<div class="paragraph">
+<p>Environment variable: <code>TKIT_LOG_RS_CLIENT_PAYLOAD_TEMPLATE</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><code>%1$s %2$s payload: %3$s</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><a id="tkit-log-rs_tkit-log-rs-client-payload-empty-body-enabled"></a><code><a href="#tkit-log-rs_tkit-log-rs-client-payload-empty-body-enabled">tkit.log.rs.client.payload.empty-body-enabled</a></code></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>Empty body enabled or disabled</p>
+</div>
+<div class="paragraph">
+<p>Environment variable: <code>TKIT_LOG_RS_CLIENT_PAYLOAD_EMPTY_BODY_ENABLED</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">boolean</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><code>true</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><a id="tkit-log-rs_tkit-log-rs-client-payload-empty-body-message"></a><code><a href="#tkit-log-rs_tkit-log-rs-client-payload-empty-body-message">tkit.log.rs.client.payload.empty-body-message</a></code></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>Empty body message</p>
+</div>
+<div class="paragraph">
+<p>Environment variable: <code>TKIT_LOG_RS_CLIENT_PAYLOAD_EMPTY_BODY_MESSAGE</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><code>&lt;EMPTY BODY&gt;</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><a id="tkit-log-rs_tkit-log-rs-client-payload-page-message"></a><code><a href="#tkit-log-rs_tkit-log-rs-client-payload-page-message">tkit.log.rs.client.payload.page-message</a></code></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>Page message</p>
+</div>
+<div class="paragraph">
+<p>Environment variable: <code>TKIT_LOG_RS_CLIENT_PAYLOAD_PAGE_MESSAGE</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><code>&#8230;&#8203;more&#8230;&#8203;</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><a id="tkit-log-rs_tkit-log-rs-client-payload-max-entity-size"></a><code><a href="#tkit-log-rs_tkit-log-rs-client-payload-max-entity-size">tkit.log.rs.client.payload.max-entity-size</a></code></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>Maximum entity size</p>
+</div>
+<div class="paragraph">
+<p>Environment variable: <code>TKIT_LOG_RS_CLIENT_PAYLOAD_MAX_ENTITY_SIZE</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">int</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><code>1048576</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><a id="tkit-log-rs_tkit-log-rs-client-payload-regex-enabled"></a><code><a href="#tkit-log-rs_tkit-log-rs-client-payload-regex-enabled">tkit.log.rs.client.payload.regex.enabled</a></code></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>Enable or disable error log message</p>
+</div>
+<div class="paragraph">
+<p>Environment variable: <code>TKIT_LOG_RS_CLIENT_PAYLOAD_REGEX_ENABLED</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">boolean</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><code>false</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><a id="tkit-log-rs_tkit-log-rs-client-payload-regex-exclude"></a><code><a href="#tkit-log-rs_tkit-log-rs-client-payload-regex-exclude">tkit.log.rs.client.payload.regex.exclude</a></code></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>Exclude request path patterns</p>
+</div>
+<div class="paragraph">
+<p>Environment variable: <code>TKIT_LOG_RS_CLIENT_PAYLOAD_REGEX_EXCLUDE</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">list of string</p></td>
+<td class="tableblock halign-left valign-middle"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><a id="tkit-log-rs_tkit-log-rs-client-start-enabled"></a><code><a href="#tkit-log-rs_tkit-log-rs-client-start-enabled">tkit.log.rs.client.start.enabled</a></code></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>Enable or disable start message</p>
+</div>
+<div class="paragraph">
+<p>Environment variable: <code>TKIT_LOG_RS_CLIENT_START_ENABLED</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">boolean</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><code>false</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><a id="tkit-log-rs_tkit-log-rs-client-start-template"></a><code><a href="#tkit-log-rs_tkit-log-rs-client-start-template">tkit.log.rs.client.start.template</a></code></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>Message template 0 - HTTP method 1 - URI</p>
+</div>
+<div class="paragraph">
+<p>Environment variable: <code>TKIT_LOG_RS_CLIENT_START_TEMPLATE</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><code>%1$s %2$s started.</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><a id="tkit-log-rs_tkit-log-rs-client-end-enabled"></a><code><a href="#tkit-log-rs_tkit-log-rs-client-end-enabled">tkit.log.rs.client.end.enabled</a></code></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>Enable or disable end message</p>
+</div>
+<div class="paragraph">
+<p>Environment variable: <code>TKIT_LOG_RS_CLIENT_END_ENABLED</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">boolean</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><code>true</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><a id="tkit-log-rs_tkit-log-rs-client-end-template"></a><code><a href="#tkit-log-rs_tkit-log-rs-client-end-template">tkit.log.rs.client.end.template</a></code></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>Message template 1 - HTTP method 2 - URI 3 - duration 4 - HTTP response code 5 - HTTP response name</p>
+</div>
+<div class="paragraph">
+<p>Environment variable: <code>TKIT_LOG_RS_CLIENT_END_TEMPLATE</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><code>%1$s %2$s [%4$s] [%3$ss]</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><a id="tkit-log-rs_tkit-log-rs-client-end-mdc-enabled"></a><code><a href="#tkit-log-rs_tkit-log-rs-client-end-mdc-enabled">tkit.log.rs.client.end.mdc.enabled</a></code></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>Enable duration time as MDC parameter</p>
+</div>
+<div class="paragraph">
+<p>Environment variable: <code>TKIT_LOG_RS_CLIENT_END_MDC_ENABLED</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">boolean</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><code>true</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><a id="tkit-log-rs_tkit-log-rs-client-end-mdc-duration-name"></a><code><a href="#tkit-log-rs_tkit-log-rs-client-end-mdc-duration-name">tkit.log.rs.client.end.mdc.duration.name</a></code></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>Duration MDC key name</p>
+</div>
+<div class="paragraph">
+<p>Environment variable: <code>TKIT_LOG_RS_CLIENT_END_MDC_DURATION_NAME</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><code>rs-client-time</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><a id="tkit-log-rs_tkit-log-rs-client-end-mdc-response-status-name"></a><code><a href="#tkit-log-rs_tkit-log-rs-client-end-mdc-response-status-name">tkit.log.rs.client.end.mdc.response-status.name</a></code></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>Response client status MDC key name</p>
+</div>
+<div class="paragraph">
+<p>Environment variable: <code>TKIT_LOG_RS_CLIENT_END_MDC_RESPONSE_STATUS_NAME</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><code>rs-client-status</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><a id="tkit-log-rs_tkit-log-rs-client-error-enabled"></a><code><a href="#tkit-log-rs_tkit-log-rs-client-error-enabled">tkit.log.rs.client.error.enabled</a></code></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>Enable or disable error log message</p>
+</div>
+<div class="paragraph">
+<p>Environment variable: <code>TKIT_LOG_RS_CLIENT_ERROR_ENABLED</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">boolean</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><code>true</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><a id="tkit-log-rs_tkit-log-rs-mdc-headers-mdc-headers"></a><code><a href="#tkit-log-rs_tkit-log-rs-mdc-headers-mdc-headers">tkit.log.rs.mdc-headers</a></code></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>Map of MDC headers</p>
+</div>
+<div class="paragraph">
+<p>Environment variable: <code>TKIT_LOG_RS_MDC_HEADERS</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><code>Map&lt;String,String&gt;</code></p></td>
+<td class="tableblock halign-left valign-middle"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><a id="tkit-log-rs_tkit-log-rs-controller-controller-log"></a><code><a href="#tkit-log-rs_tkit-log-rs-controller-controller-log">tkit.log.rs.controller."controller".log</a></code></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>Enable or disable rest controller log</p>
+</div>
+<div class="paragraph">
+<p>Environment variable: <code>TKIT_LOG_RS_CONTROLLER__CONTROLLER__LOG</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">boolean</p></td>
+<td class="tableblock halign-left valign-middle"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><a id="tkit-log-rs_tkit-log-rs-controller-controller-payload"></a><code><a href="#tkit-log-rs_tkit-log-rs-controller-controller-payload">tkit.log.rs.controller."controller".payload</a></code></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>Enable or disable rest controller payload</p>
+</div>
+<div class="paragraph">
+<p>Environment variable: <code>TKIT_LOG_RS_CONTROLLER__CONTROLLER__PAYLOAD</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">boolean</p></td>
+<td class="tableblock halign-left valign-middle"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><a id="tkit-log-rs_tkit-log-rs-controller-controller-mdc-headers"></a><code><a href="#tkit-log-rs_tkit-log-rs-controller-controller-mdc-headers">tkit.log.rs.controller."controller".mdc-headers</a></code></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>Map of MDC headers</p>
+</div>
+<div class="paragraph">
+<p>Environment variable: <code>TKIT_LOG_RS_CONTROLLER__CONTROLLER__MDC_HEADERS</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
+<td class="tableblock halign-left valign-middle"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><a id="tkit-log-rs_tkit-log-rs-controller-controller-method-method-log"></a><code><a href="#tkit-log-rs_tkit-log-rs-controller-controller-method-method-log">tkit.log.rs.controller."controller".method."method".log</a></code></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>Enable or disable rest controller log</p>
+</div>
+<div class="paragraph">
+<p>Environment variable: <code>TKIT_LOG_RS_CONTROLLER__CONTROLLER__METHOD__METHOD__LOG</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">boolean</p></td>
+<td class="tableblock halign-left valign-middle"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><a id="tkit-log-rs_tkit-log-rs-controller-controller-method-method-payload"></a><code><a href="#tkit-log-rs_tkit-log-rs-controller-controller-method-method-payload">tkit.log.rs.controller."controller".method."method".payload</a></code></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>Enable or disable rest controller payload</p>
+</div>
+<div class="paragraph">
+<p>Environment variable: <code>TKIT_LOG_RS_CONTROLLER__CONTROLLER__METHOD__METHOD__PAYLOAD</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">boolean</p></td>
+<td class="tableblock halign-left valign-middle"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><a id="tkit-log-rs_tkit-log-rs-controller-controller-method-method-mdc-headers"></a><code><a href="#tkit-log-rs_tkit-log-rs-controller-controller-method-method-mdc-headers">tkit.log.rs.controller."controller".method."method".mdc-headers</a></code></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>Map of MDC headers</p>
+</div>
+<div class="paragraph">
+<p>Environment variable: <code>TKIT_LOG_RS_CONTROLLER__CONTROLLER__METHOD__METHOD__MDC_HEADERS</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
+<td class="tableblock halign-left valign-middle"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><a id="tkit-log-rs_tkit-log-rs-client-mdc-headers-mdc-headers"></a><code><a href="#tkit-log-rs_tkit-log-rs-client-mdc-headers-mdc-headers">tkit.log.rs.client.mdc-headers</a></code></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>Map of MDC headers</p>
+</div>
+<div class="paragraph">
+<p>Environment variable: <code>TKIT_LOG_RS_CLIENT_MDC_HEADERS</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><code>Map&lt;String,String&gt;</code></p></td>
+<td class="tableblock halign-left valign-middle"></td>
+</tr>
+</tbody>
+</table>
+</article>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <p>This page was built using the Antora default UI.</p>
+  <p>The source code for this UI is licensed under the terms of the MPL-2.0 license.</p>
+</footer>
+<script id="site-script" src="../../../../_/js/site.js" data-ui-root-path="../../../../_"></script>
+<script async src="../../../../_/js/vendor/highlight.js"></script>
+<script>
+    document.addEventListener('readystatechange', event => {
+    if (event.target.readyState === "complete") {
+        renderAllBpmnJs();
+    }
+    });    
+</script>
+  </body>
+</html>

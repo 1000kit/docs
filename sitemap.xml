@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-<url>
-<loc>https://1000kit.github.io/index/current/index.html</loc>
-<lastmod>2024-03-14T11:00:36.957Z</lastmod>
-</url>
-</urlset>
+<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<sitemap>
+<loc>https://1000kit.github.io/sitemap-index.xml</loc>
+</sitemap>
+<sitemap>
+<loc>https://1000kit.github.io/sitemap-tkit-quarkus.xml</loc>
+</sitemap>
+</sitemapindex>

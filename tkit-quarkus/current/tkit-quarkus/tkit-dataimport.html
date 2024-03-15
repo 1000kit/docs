@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Untitled :: 1000kit Docs</title>
+    <link rel="canonical" href="https://1000kit.github.io/tkit-quarkus/current/tkit-quarkus/tkit-dataimport.html">
+    <meta name="generator" content="Antora 3.1.7">
+    <link rel="stylesheet" href="../../../_/css/site.css">
+    <link rel="stylesheet" href="https://unpkg.com/bpmn-js/dist/assets/diagram-js.css">
+    <link rel="stylesheet" href="https://unpkg.com/bpmn-js/dist/assets/bpmn-font/css/bpmn.css">
+    <link rel="stylesheet" href="../../../_/css/bpmn.css">
+    <script>var uiRootPath = '../../../_'</script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://unpkg.com/bpmn-js/dist/bpmn-viewer.production.min.js"></script>
+    <script src="https://unpkg.com/dmn-js@11.0.2/dist/dmn-viewer.production.min.js"></script>
+    <script src="../../../_/js/bpmn.js"></script>
+  </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="https://1000kit.github.io">1000kit Docs</a>
+      <button class="navbar-burger" data-target="topbar-nav">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+        <a class="navbar-item" href="/docs">Home</a>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link" href="#">Guides</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="/docs/docs-guides-quarkus/latest/">Quarkus</a>
+            <a class="navbar-item" href="/docs/docs-guides-bpmn/latest/">Bpmn</a>
+          </div>
+        </div>
+        <div class="navbar-item">
+          <span class="control">
+          </span>
+        </div>
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="tkit-quarkus" data-version="latest">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <h3 class="title"><a href="index.html">1000kit Quarkus</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="index.html">1000kit Quarkus</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="tkit-context.html">Context</a>
+  </li>
+  <li class="nav-item is-current-page" data-depth="1">
+    <a class="nav-link" href="tkit-dataimport.html">Master Data Import</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="tkit-db-import.html">Test Database Import</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="tkit-jpa.html">JPA Persistence</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="tkit-jpa-models.html">JPA Persistence Models</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="tkit-jpa-tenant.html">JPA Persistence Tenant Resolver</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="tkit-log-cdi.html">CDI Log Interceptor</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="tkit-log-json.html">Json Log Format</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="tkit-log-rs.html">Rest Log Interceptor</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="tkit-log-rs.html">Rest Extension</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="tkit-log-rs.html">Rest Context Extension</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="tkit-log-rs.html">Rest Security</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">1000kit Quarkus</span>
+    <span class="version">latest</span>
+  </div>
+  <ul class="components">
+    <li class="component">
+      <a class="title" href="../../../index/current/index.html">1000kit Docs</a>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../index/current/index.html">latest</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component is-current">
+      <a class="title" href="index.html">1000kit Quarkus</a>
+      <ul class="versions">
+        <li class="version is-current is-latest">
+          <a href="index.html">latest</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../../../index/current/index.html" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="index.html">1000kit Quarkus</a></li>
+    <li><a href="tkit-dataimport.html">Master Data Import</a></li>
+  </ul>
+</nav>
+  <div class="edit-this-page"><a href="https://github.com/1000kit/tkit-quarkus/edit/main/docs/modules/tkit-quarkus/pages/tkit-dataimport.adoc">Edit this Page</a></div>
+  </div>
+  <div class="content">
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<div class="sect1">
+<h2 id="_tkit_quarkus_data_import"><a class="anchor" href="#_tkit_quarkus_data_import"></a>tkit-quarkus-data-import</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>1000kit quarkus data import extension during the start of the application.</p>
+</div>
+<div class="sect2">
+<h3 id="_installation"><a class="anchor" href="#_installation"></a>Installation</h3>
+<div class="paragraph">
+<p>If you want to use this extension, you need to add the <code>org.tkit.quarkus.lib:tkit-quarkus-data-import</code> extension first to your build file.</p>
+</div>
+<div class="paragraph">
+<p>For instance, with Maven, add the following dependency to your POM file:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">&lt;dependency&gt;
+    &lt;groupId&gt;org.tkit.quarkus.lib&lt;/groupId&gt;
+    &lt;artifactId&gt;tkit-quarkus-data-import&lt;/artifactId&gt;
+    &lt;version&gt;2.16.0&lt;/version&gt;
+&lt;/dependency&gt;</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_usage"><a class="anchor" href="#_usage"></a>Usage</h3>
+<div class="paragraph">
+<p>The log of the data import changes is stored in the <code>dataimportlog</code> table. To create this table copy and paste these liquibase changes to your project.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">&lt;?xml version="1.1" encoding="UTF-8" standalone="no"?&gt;
+&lt;databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+                   xmlns:pro="http://www.liquibase.org/xml/ns/pro"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/pro http://www.liquibase.org/xml/ns/pro/liquibase-pro-3.8.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd"
+                   objectQuotingStrategy="QUOTE_ONLY_RESERVED_WORDS"&gt;
+    &lt;changeSet author="dev (generated)" id="dataimportlog-1"&gt;
+        &lt;createTable tableName="dataimportlog"&gt;
+            &lt;column name="id" type="VARCHAR(255)"&gt;
+                &lt;constraints nullable="false" primaryKey="true" primaryKeyName="dataimportlog_pkey"/&gt;
+            &lt;/column&gt;
+            &lt;column name="creationdate" type="TIMESTAMP WITHOUT TIME ZONE"/&gt;
+            &lt;column name="modificationdate" type="TIMESTAMP WITHOUT TIME ZONE"/&gt;
+            &lt;column name="file" type="VARCHAR(255)"/&gt;
+            &lt;column name="md5" type="VARCHAR(255)"/&gt;
+            &lt;column name="error" type="VARCHAR(255)"/&gt;
+        &lt;/createTable&gt;
+    &lt;/changeSet&gt;
+&lt;/databaseChangeLog&gt;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Or embedded it in the project from file <a href="#../../../../extensions/data-import/runtime/src/main/resources/db/create-log-table.xml" class="xref unresolved">create-log-table</a></p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">&lt;include file="classpath:/db/create-log-table.xml"/&gt;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Example embedded configuration <a href="#../../../../extensions/data-import/tests/src/main/resources/db/changeLog.xml" class="xref unresolved">changelog.xml</a></p>
+</div>
+<div class="paragraph">
+<p>Flyway sql script:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-sql hljs" data-lang="sql">CREATE TABLE DATAIMPORTLOG (
+    ID VARCHAR(255) NOT NULL,
+    CREATIONDATE TIMESTAMP WITHOUT TIME ZONE,
+    MODIFICATIONDATE TIMESTAMP WITHOUT TIME ZONE,
+    FILE VARCHAR(255),
+    MD5 VARCHAR(255),
+    ERROR VARCHAR(255),
+    CONSTRAINT DATAIMPORTLOG_PKEY PRIMARY KEY (ID)
+);</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Create bean with <code>@DataImport("my-import-key")</code> bean which implements the <code>DataImportService</code> interface.
+Example bean <a href="#../../../../extensions/data-import/tests/src/main/java/org/tkit/quarkus/dataimport/test/ParameterTestImport.java" class="xref unresolved">ParameterTestImport</a></p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@DataImport("my-import-key")
+public class ParameterTestImport implements DataImportService {
+
+    @Inject MyModelDAO dao;
+    @Inject ObjectMapper mapper;
+
+    @Override
+    public void importData(DataImportConfig config) {
+        try {
+            MyModel model = mapper.readValue(config.getData(), MyModel.class);
+            dao.create(model);
+        } catch (Exception ex) {
+            throw new RuntimeException("Error import", ex);
+        }
+    }
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Example configuration</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-properties hljs" data-lang="properties">tkit.dataimport.enabled=true
+tkit.dataimport.configurations.key1.file=/data/example_data.json
+tkit.dataimport.configurations.key1.metadata.operation=UPDATE
+tkit.dataimport.configurations.key1.metadata.check=FALSE
+tkit.dataimport.configurations.key1.enabled=true
+tkit.dataimport.configurations.key1.stop-at-error=false</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_configuration"><a class="anchor" href="#_configuration"></a>Configuration</h3>
+<div class="paragraph configuration-legend">
+<p><span class="icon"><i class="fa fa-lock" title="Fixed at build time"></i></span> Configuration property fixed at build time - All other configuration properties are overridable at runtime</p>
+</div>
+<table class="tableblock frame-all grid-all stretch configuration-reference searchable">
+<colgroup>
+<col style="width: 80%;">
+<col style="width: 10%;">
+<col style="width: 10%;">
+</colgroup>
+<tbody>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock"><a id="tkit-dataimport_configuration"></a><a href="#tkit-dataimport_configuration">Configuration property</a></p></th>
+<th class="tableblock halign-left valign-middle"><p class="tableblock">Type</p></th>
+<th class="tableblock halign-left valign-middle"><p class="tableblock">Default</p></th>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><a id="tkit-dataimport_tkit-dataimport-enabled"></a><code><a href="#tkit-dataimport_tkit-dataimport-enabled">tkit.dataimport.enabled</a></code></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>If set to true, the application will import data</p>
+</div>
+<div class="paragraph">
+<p>Environment variable: <code>TKIT_DATAIMPORT_ENABLED</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">boolean</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><code>true</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><a id="tkit-dataimport_tkit-dataimport-error-msg-length"></a><code><a href="#tkit-dataimport_tkit-dataimport-error-msg-length">tkit.dataimport.error-msg-length</a></code></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>Error message length in the database</p>
+</div>
+<div class="paragraph">
+<p>Environment variable: <code>TKIT_DATAIMPORT_ERROR_MSG_LENGTH</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">int</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><code>255</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><a id="tkit-dataimport_tkit-dataimport-configurations-configurations-bean"></a><code><a href="#tkit-dataimport_tkit-dataimport-configurations-configurations-bean">tkit.dataimport.configurations."configurations".bean</a></code></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>The bean key</p>
+</div>
+<div class="paragraph">
+<p>Environment variable: <code>TKIT_DATAIMPORT_CONFIGURATIONS__CONFIGURATIONS__BEAN</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">` `</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><a id="tkit-dataimport_tkit-dataimport-configurations-configurations-file"></a><code><a href="#tkit-dataimport_tkit-dataimport-configurations-configurations-file">tkit.dataimport.configurations."configurations".file</a></code></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>The path to the data source file</p>
+</div>
+<div class="paragraph">
+<p>Environment variable: <code>TKIT_DATAIMPORT_CONFIGURATIONS__CONFIGURATIONS__FILE</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">required <span class="icon"><i class="fa fa-exclamation-circle" title="Configuration property is required"></i></span></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><a id="tkit-dataimport_tkit-dataimport-configurations-configurations-metadata-metadata"></a><code><a href="#tkit-dataimport_tkit-dataimport-configurations-configurations-metadata-metadata">tkit.dataimport.configurations."configurations".metadata</a></code></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>The metadata for the execution</p>
+</div>
+<div class="paragraph">
+<p>Environment variable: <code>TKIT_DATAIMPORT_CONFIGURATIONS__CONFIGURATIONS__METADATA</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><code>Map&lt;String,String&gt;</code></p></td>
+<td class="tableblock halign-left valign-middle"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><a id="tkit-dataimport_tkit-dataimport-configurations-configurations-enabled"></a><code><a href="#tkit-dataimport_tkit-dataimport-configurations-configurations-enabled">tkit.dataimport.configurations."configurations".enabled</a></code></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>If set to true, the application will run this import data</p>
+</div>
+<div class="paragraph">
+<p>Environment variable: <code>TKIT_DATAIMPORT_CONFIGURATIONS__CONFIGURATIONS__ENABLED</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">boolean</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><code>true</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><a id="tkit-dataimport_tkit-dataimport-configurations-configurations-stop-at-error"></a><code><a href="#tkit-dataimport_tkit-dataimport-configurations-configurations-stop-at-error">tkit.dataimport.configurations."configurations".stop-at-error</a></code></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>If set to true, the application will stop if data import failed</p>
+</div>
+<div class="paragraph">
+<p>Environment variable: <code>TKIT_DATAIMPORT_CONFIGURATIONS__CONFIGURATIONS__STOP_AT_ERROR</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">boolean</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><code>false</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><a id="tkit-dataimport_tkit-dataimport-configurations-configurations-retry-error-import"></a><code><a href="#tkit-dataimport_tkit-dataimport-configurations-configurations-retry-error-import">tkit.dataimport.configurations."configurations".retry-error-import</a></code></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>If set to false, the application will not retry error import.</p>
+</div>
+<div class="paragraph">
+<p>Environment variable: <code>TKIT_DATAIMPORT_CONFIGURATIONS__CONFIGURATIONS__RETRY_ERROR_IMPORT</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">boolean</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><code>true</code></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</article>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <p>This page was built using the Antora default UI.</p>
+  <p>The source code for this UI is licensed under the terms of the MPL-2.0 license.</p>
+</footer>
+<script id="site-script" src="../../../_/js/site.js" data-ui-root-path="../../../_"></script>
+<script async src="../../../_/js/vendor/highlight.js"></script>
+<script>
+    document.addEventListener('readystatechange', event => {
+    if (event.target.readyState === "complete") {
+        renderAllBpmnJs();
+    }
+    });    
+</script>
+  </body>
+</html>

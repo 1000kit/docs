@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Untitled :: 1000kit Docs</title>
+    <link rel="canonical" href="https://1000kit.github.io/tkit-quarkus/current/tkit-quarkus/tkit-db-import.html">
+    <meta name="generator" content="Antora 3.1.7">
+    <link rel="stylesheet" href="../../../_/css/site.css">
+    <link rel="stylesheet" href="https://unpkg.com/bpmn-js/dist/assets/diagram-js.css">
+    <link rel="stylesheet" href="https://unpkg.com/bpmn-js/dist/assets/bpmn-font/css/bpmn.css">
+    <link rel="stylesheet" href="../../../_/css/bpmn.css">
+    <script>var uiRootPath = '../../../_'</script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://unpkg.com/bpmn-js/dist/bpmn-viewer.production.min.js"></script>
+    <script src="https://unpkg.com/dmn-js@11.0.2/dist/dmn-viewer.production.min.js"></script>
+    <script src="../../../_/js/bpmn.js"></script>
+  </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="https://1000kit.github.io">1000kit Docs</a>
+      <button class="navbar-burger" data-target="topbar-nav">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+        <a class="navbar-item" href="/docs">Home</a>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link" href="#">Guides</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="/docs/docs-guides-quarkus/latest/">Quarkus</a>
+            <a class="navbar-item" href="/docs/docs-guides-bpmn/latest/">Bpmn</a>
+          </div>
+        </div>
+        <div class="navbar-item">
+          <span class="control">
+          </span>
+        </div>
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="tkit-quarkus" data-version="latest">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <h3 class="title"><a href="index.html">1000kit Quarkus</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="index.html">1000kit Quarkus</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="tkit-context.html">Context</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="tkit-dataimport.html">Master Data Import</a>
+  </li>
+  <li class="nav-item is-current-page" data-depth="1">
+    <a class="nav-link" href="tkit-db-import.html">Test Database Import</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="tkit-jpa.html">JPA Persistence</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="tkit-jpa-models.html">JPA Persistence Models</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="tkit-jpa-tenant.html">JPA Persistence Tenant Resolver</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="tkit-log-cdi.html">CDI Log Interceptor</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="tkit-log-json.html">Json Log Format</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="tkit-log-rs.html">Rest Log Interceptor</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="tkit-log-rs.html">Rest Extension</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="tkit-log-rs.html">Rest Context Extension</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="tkit-log-rs.html">Rest Security</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">1000kit Quarkus</span>
+    <span class="version">latest</span>
+  </div>
+  <ul class="components">
+    <li class="component">
+      <a class="title" href="../../../index/current/index.html">1000kit Docs</a>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../index/current/index.html">latest</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component is-current">
+      <a class="title" href="index.html">1000kit Quarkus</a>
+      <ul class="versions">
+        <li class="version is-current is-latest">
+          <a href="index.html">latest</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../../../index/current/index.html" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="index.html">1000kit Quarkus</a></li>
+    <li><a href="tkit-db-import.html">Test Database Import</a></li>
+  </ul>
+</nav>
+  <div class="edit-this-page"><a href="https://github.com/1000kit/tkit-quarkus/edit/main/docs/modules/tkit-quarkus/pages/tkit-db-import.adoc">Edit this Page</a></div>
+  </div>
+  <div class="content">
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<div class="sect1">
+<h2 id="_tkit_quarkus_db_import"><a class="anchor" href="#_tkit_quarkus_db_import"></a>tkit-quarkus-db-import</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Test extension for data import from excel into database during unit tests.</p>
+</div>
+<div class="sect2">
+<h3 id="_installation"><a class="anchor" href="#_installation"></a>Installation</h3>
+<div class="paragraph">
+<p>If you want to use this extension, you need to add the <code>org.tkit.quarkus.lib:tkit-quarkus-db-import</code> extension first to your build file.</p>
+</div>
+<div class="paragraph">
+<p>For instance, with Maven, add the following dependency to your POM file:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">&lt;dependency&gt;
+    &lt;groupId&gt;org.tkit.quarkus.lib&lt;/groupId&gt;
+    &lt;artifactId&gt;tkit-quarkus-db-import&lt;/artifactId&gt;
+    &lt;version&gt;2.16.0&lt;/version&gt;
+&lt;/dependency&gt;</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_usage"><a class="anchor" href="#_usage"></a>Usage</h3>
+<div class="paragraph">
+<p>The <code>@WithDBData</code> annotation to import database data before testing can be used at the class level or method level.</p>
+</div>
+<div class="paragraph">
+<p>Example of using the annotation on the class level</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@QuarkusTest
+@TestHTTPEndpoint(ThemesRestController.class)
+@WithDBData(value = "data/testdata.xml", deleteBeforeInsert = true, deleteAfterTest = true, rinseAndRepeat = true)
+class ThemesRestControllerTest {
+
+    // test methods
+
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Example of using the annotation on the method level</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@QuarkusTest
+@TestHTTPEndpoint(UserRestController.class)
+class UserRestControllerTest {
+
+     @Test
+    @WithDBData(value = { "data/test.xml" })
+    public void createUserTest() {
+        // test
+    }
+
+}</code></pre>
+</div>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+Only <code>FlatXmlDataSet</code> format of the <code>DBUnit</code> is currently supported.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>The <code>XML</code> file must be in the classpath. The best practice is to place this file in this directory <code>src/test/resources</code>.</p>
+</div>
+<div class="paragraph">
+<p>Example:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;dataset&gt;
+    &lt;T_USER guid="U_GUID_3" optlock="3" username="TestUser" email="test@test"/&gt;
+    &lt;T_USER guid="U_GUID_4" optlock="3" username="TestUser" email="test@test"/&gt;
+&lt;/dataset&gt;</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_configuration"><a class="anchor" href="#_configuration"></a>Configuration</h3>
+<div class="paragraph configuration-legend">
+<p><span class="icon"><i class="fa fa-lock" title="Fixed at build time"></i></span> Configuration property fixed at build time - All other configuration properties are overridable at runtime</p>
+</div>
+<table class="tableblock frame-all grid-all stretch configuration-reference searchable">
+<colgroup>
+<col style="width: 80%;">
+<col style="width: 10%;">
+<col style="width: 10%;">
+</colgroup>
+<tbody>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock"><a id="tkit-db-import_configuration"></a><a href="#tkit-db-import_configuration">Configuration property</a></p></th>
+<th class="tableblock halign-left valign-middle"><p class="tableblock">Type</p></th>
+<th class="tableblock halign-left valign-middle"><p class="tableblock">Default</p></th>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-lock" title="Fixed at build time"></i></span> <a id="tkit-db-import_tkit-db-import-devservices-enabled"></a><code><a href="#tkit-db-import_tkit-db-import-devservices-enabled">tkit.db-import.devservices.enabled</a></code></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>If Dev Services for db-import has been explicitly enabled or disabled. Dev Services are generally enabled by default, unless there is an existing configuration present.</p>
+</div>
+<div class="paragraph">
+<p>Environment variable: <code>TKIT_DB_IMPORT_DEVSERVICES_ENABLED</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">boolean</p></td>
+<td class="tableblock halign-left valign-middle"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="icon"><i class="fa fa-lock" title="Fixed at build time"></i></span> <a id="tkit-db-import_tkit-db-import-devservices-db-image-name"></a><code><a href="#tkit-db-import_tkit-db-import-devservices-db-image-name">tkit.db-import.devservices.db-image-name</a></code></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>The db image to use.</p>
+</div>
+<div class="paragraph">
+<p>Environment variable: <code>TKIT_DB_IMPORT_DEVSERVICES_DB_IMAGE_NAME</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><code>docker.io/postgres</code></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</article>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <p>This page was built using the Antora default UI.</p>
+  <p>The source code for this UI is licensed under the terms of the MPL-2.0 license.</p>
+</footer>
+<script id="site-script" src="../../../_/js/site.js" data-ui-root-path="../../../_"></script>
+<script async src="../../../_/js/vendor/highlight.js"></script>
+<script>
+    document.addEventListener('readystatechange', event => {
+    if (event.target.readyState === "complete") {
+        renderAllBpmnJs();
+    }
+    });    
+</script>
+  </body>
+</html>

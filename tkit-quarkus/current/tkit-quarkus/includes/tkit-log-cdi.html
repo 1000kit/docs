@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Untitled :: 1000kit Docs</title>
+    <link rel="canonical" href="https://1000kit.github.io/tkit-quarkus/current/tkit-quarkus/includes/tkit-log-cdi.html">
+    <meta name="generator" content="Antora 3.1.7">
+    <link rel="stylesheet" href="../../../../_/css/site.css">
+    <link rel="stylesheet" href="https://unpkg.com/bpmn-js/dist/assets/diagram-js.css">
+    <link rel="stylesheet" href="https://unpkg.com/bpmn-js/dist/assets/bpmn-font/css/bpmn.css">
+    <link rel="stylesheet" href="../../../../_/css/bpmn.css">
+    <script>var uiRootPath = '../../../../_'</script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://unpkg.com/bpmn-js/dist/bpmn-viewer.production.min.js"></script>
+    <script src="https://unpkg.com/dmn-js@11.0.2/dist/dmn-viewer.production.min.js"></script>
+    <script src="../../../../_/js/bpmn.js"></script>
+  </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="https://1000kit.github.io">1000kit Docs</a>
+      <button class="navbar-burger" data-target="topbar-nav">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+        <a class="navbar-item" href="/docs">Home</a>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link" href="#">Guides</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="/docs/docs-guides-quarkus/latest/">Quarkus</a>
+            <a class="navbar-item" href="/docs/docs-guides-bpmn/latest/">Bpmn</a>
+          </div>
+        </div>
+        <div class="navbar-item">
+          <span class="control">
+          </span>
+        </div>
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="tkit-quarkus" data-version="latest">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <h3 class="title"><a href="../index.html">1000kit Quarkus</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../index.html">1000kit Quarkus</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../tkit-context.html">Context</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../tkit-dataimport.html">Master Data Import</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../tkit-db-import.html">Test Database Import</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../tkit-jpa.html">JPA Persistence</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../tkit-jpa-models.html">JPA Persistence Models</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../tkit-jpa-tenant.html">JPA Persistence Tenant Resolver</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../tkit-log-cdi.html">CDI Log Interceptor</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../tkit-log-json.html">Json Log Format</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../tkit-log-rs.html">Rest Log Interceptor</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../tkit-log-rs.html">Rest Extension</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../tkit-log-rs.html">Rest Context Extension</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../tkit-log-rs.html">Rest Security</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">1000kit Quarkus</span>
+    <span class="version">latest</span>
+  </div>
+  <ul class="components">
+    <li class="component">
+      <a class="title" href="../../../../index/current/index.html">1000kit Docs</a>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../index/current/index.html">latest</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component is-current">
+      <a class="title" href="../index.html">1000kit Quarkus</a>
+      <ul class="versions">
+        <li class="version is-current is-latest">
+          <a href="../index.html">latest</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../../../../index/current/index.html" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+</nav>
+  <div class="edit-this-page"><a href="https://github.com/1000kit/tkit-quarkus/edit/main/docs/modules/tkit-quarkus/pages/includes/tkit-log-cdi.adoc">Edit this Page</a></div>
+  </div>
+  <div class="content">
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<div class="paragraph configuration-legend">
+<p><span class="icon"><i class="fa fa-lock" title="Fixed at build time"></i></span> Configuration property fixed at build time - All other configuration properties are overridable at runtime</p>
+</div>
+<table class="tableblock frame-all grid-all stretch configuration-reference searchable">
+<colgroup>
+<col style="width: 80%;">
+<col style="width: 10%;">
+<col style="width: 10%;">
+</colgroup>
+<tbody>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock"><a id="tkit-log-cdi_configuration"></a><a href="#tkit-log-cdi_configuration">Configuration property</a></p></th>
+<th class="tableblock halign-left valign-middle"><p class="tableblock">Type</p></th>
+<th class="tableblock halign-left valign-middle"><p class="tableblock">Default</p></th>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><a id="tkit-log-cdi_tkit-log-cdi-enabled"></a><code><a href="#tkit-log-cdi_tkit-log-cdi-enabled">tkit.log.cdi.enabled</a></code></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>Enable or disable interceptor</p>
+</div>
+<div class="paragraph">
+<p>Environment variable: <code>TKIT_LOG_CDI_ENABLED</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">boolean</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><code>true</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><a id="tkit-log-cdi_tkit-log-cdi-custom-data-prefix"></a><code><a href="#tkit-log-cdi_tkit-log-cdi-custom-data-prefix">tkit.log.cdi.custom-data.prefix</a></code></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>Prefix for custom data mdc entries</p>
+</div>
+<div class="paragraph">
+<p>Environment variable: <code>TKIT_LOG_CDI_CUSTOM_DATA_PREFIX</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
+<td class="tableblock halign-left valign-middle"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><a id="tkit-log-cdi_tkit-log-cdi-start-enabled"></a><code><a href="#tkit-log-cdi_tkit-log-cdi-start-enabled">tkit.log.cdi.start.enabled</a></code></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>Enable or disable start message</p>
+</div>
+<div class="paragraph">
+<p>Environment variable: <code>TKIT_LOG_CDI_START_ENABLED</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">boolean</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><code>false</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><a id="tkit-log-cdi_tkit-log-cdi-start-template"></a><code><a href="#tkit-log-cdi_tkit-log-cdi-start-template">tkit.log.cdi.start.template</a></code></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>Message template 0 - method 1 - parameters</p>
+</div>
+<div class="paragraph">
+<p>Environment variable: <code>TKIT_LOG_CDI_START_TEMPLATE</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><code>%1$s(%2$s) started.</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><a id="tkit-log-cdi_tkit-log-cdi-succeed-enabled"></a><code><a href="#tkit-log-cdi_tkit-log-cdi-succeed-enabled">tkit.log.cdi.succeed.enabled</a></code></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>Enable or disable end message</p>
+</div>
+<div class="paragraph">
+<p>Environment variable: <code>TKIT_LOG_CDI_SUCCEED_ENABLED</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">boolean</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><code>true</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><a id="tkit-log-cdi_tkit-log-cdi-succeed-template"></a><code><a href="#tkit-log-cdi_tkit-log-cdi-succeed-template">tkit.log.cdi.succeed.template</a></code></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>Message template 1 - method 2 - parameters 3 - return value 4 - time</p>
+</div>
+<div class="paragraph">
+<p>Environment variable: <code>TKIT_LOG_CDI_SUCCEED_TEMPLATE</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><code>%1$s(%2$s):%3$s [%4$.3fs]</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><a id="tkit-log-cdi_tkit-log-cdi-failed-enabled"></a><code><a href="#tkit-log-cdi_tkit-log-cdi-failed-enabled">tkit.log.cdi.failed.enabled</a></code></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>Enable or disable end message</p>
+</div>
+<div class="paragraph">
+<p>Environment variable: <code>TKIT_LOG_CDI_FAILED_ENABLED</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">boolean</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><code>true</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><a id="tkit-log-cdi_tkit-log-cdi-failed-template"></a><code><a href="#tkit-log-cdi_tkit-log-cdi-failed-template">tkit.log.cdi.failed.template</a></code></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>Message template 1 - method 2 - parameters 3 - return value 4 - time</p>
+</div>
+<div class="paragraph">
+<p>Environment variable: <code>TKIT_LOG_CDI_FAILED_TEMPLATE</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><code>%1$s(%2$s) throw %3$s [%4$.3fs]</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><a id="tkit-log-cdi_tkit-log-cdi-return-void-template"></a><code><a href="#tkit-log-cdi_tkit-log-cdi-return-void-template">tkit.log.cdi.return-void-template</a></code></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>Return void method template</p>
+</div>
+<div class="paragraph">
+<p>Environment variable: <code>TKIT_LOG_CDI_RETURN_VOID_TEMPLATE</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><code>void</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><a id="tkit-log-cdi_tkit-log-cdi-mdc-errorkey"></a><code><a href="#tkit-log-cdi_tkit-log-cdi-mdc-errorkey">tkit.log.cdi.mdc.errorKey</a></code></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>Mdc error key for FBN error code</p>
+</div>
+<div class="paragraph">
+<p>Environment variable: <code>TKIT_LOG_CDI_MDC_ERRORKEY</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><code>errorNumber</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><a id="tkit-log-cdi_tkit-log-cdi-service-service-log"></a><code><a href="#tkit-log-cdi_tkit-log-cdi-service-service-log">tkit.log.cdi.service."service".log</a></code></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>Enable or disable service log</p>
+</div>
+<div class="paragraph">
+<p>Environment variable: <code>TKIT_LOG_CDI_SERVICE__SERVICE__LOG</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">boolean</p></td>
+<td class="tableblock halign-left valign-middle"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><a id="tkit-log-cdi_tkit-log-cdi-service-service-stacktrace"></a><code><a href="#tkit-log-cdi_tkit-log-cdi-service-service-stacktrace">tkit.log.cdi.service."service".stacktrace</a></code></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>Enable or disable service stacktrace</p>
+</div>
+<div class="paragraph">
+<p>Environment variable: <code>TKIT_LOG_CDI_SERVICE__SERVICE__STACKTRACE</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">boolean</p></td>
+<td class="tableblock halign-left valign-middle"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><a id="tkit-log-cdi_tkit-log-cdi-service-service-method-method-log"></a><code><a href="#tkit-log-cdi_tkit-log-cdi-service-service-method-method-log">tkit.log.cdi.service."service".method."method".log</a></code></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>Enable or disable service log</p>
+</div>
+<div class="paragraph">
+<p>Environment variable: <code>TKIT_LOG_CDI_SERVICE__SERVICE__METHOD__METHOD__LOG</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">boolean</p></td>
+<td class="tableblock halign-left valign-middle"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><a id="tkit-log-cdi_tkit-log-cdi-service-service-method-method-stacktrace"></a><code><a href="#tkit-log-cdi_tkit-log-cdi-service-service-method-method-stacktrace">tkit.log.cdi.service."service".method."method".stacktrace</a></code></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>Enable or disable service stacktrace</p>
+</div>
+<div class="paragraph">
+<p>Environment variable: <code>TKIT_LOG_CDI_SERVICE__SERVICE__METHOD__METHOD__STACKTRACE</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">boolean</p></td>
+<td class="tableblock halign-left valign-middle"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><a id="tkit-log-cdi_tkit-log-cdi-service-service-method-method-return-mask"></a><code><a href="#tkit-log-cdi_tkit-log-cdi-service-service-method-method-return-mask">tkit.log.cdi.service."service".method."method".return-mask</a></code></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>Return mask</p>
+</div>
+<div class="paragraph">
+<p>Environment variable: <code>TKIT_LOG_CDI_SERVICE__SERVICE__METHOD__METHOD__RETURN_MASK</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
+<td class="tableblock halign-left valign-middle"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><a id="tkit-log-cdi_tkit-log-cdi-service-service-method-method-param"></a><code><a href="#tkit-log-cdi_tkit-log-cdi-service-service-method-method-param">tkit.log.cdi.service."service".method."method".param</a></code></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>Exclude parameters</p>
+</div>
+<div class="paragraph">
+<p>Environment variable: <code>TKIT_LOG_CDI_SERVICE__SERVICE__METHOD__METHOD__PARAM</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">short</p></td>
+<td class="tableblock halign-left valign-middle"></td>
+</tr>
+</tbody>
+</table>
+</article>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <p>This page was built using the Antora default UI.</p>
+  <p>The source code for this UI is licensed under the terms of the MPL-2.0 license.</p>
+</footer>
+<script id="site-script" src="../../../../_/js/site.js" data-ui-root-path="../../../../_"></script>
+<script async src="../../../../_/js/vendor/highlight.js"></script>
+<script>
+    document.addEventListener('readystatechange', event => {
+    if (event.target.readyState === "complete") {
+        renderAllBpmnJs();
+    }
+    });    
+</script>
+  </body>
+</html>
