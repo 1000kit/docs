@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <title>Untitled :: 1000kit Docs</title>
-    <link rel="canonical" href="https://1000kit.github.io/tkit-quarkus/current/tkit-quarkus/tkit-rest.html">
+    <link rel="canonical" href="https://1000kit.github.io/tkit-quarkus/current/tkit-quarkus/tkit-quarkus-security.html">
     <meta name="generator" content="Antora 3.1.7">
     <link rel="stylesheet" href="../../../_/css/site.css">
     <script>var uiRootPath = '../../../_'</script>
@@ -54,40 +54,40 @@
     <a class="nav-link" href="index.html">1000kit Quarkus</a>
   </li>
   <li class="nav-item" data-depth="1">
-    <a class="nav-link" href="tkit-context.html">Context</a>
+    <a class="nav-link" href="tkit-quarkus-context.html">Context</a>
   </li>
   <li class="nav-item" data-depth="1">
-    <a class="nav-link" href="tkit-dataimport.html">Master Data Import</a>
+    <a class="nav-link" href="tkit-quarkus-data-import.html">Master Data Import</a>
   </li>
   <li class="nav-item" data-depth="1">
-    <a class="nav-link" href="tkit-db-import.html">Test Database Import</a>
+    <a class="nav-link" href="tkit-quarkus-db-import.html">Test Database Import</a>
   </li>
   <li class="nav-item" data-depth="1">
-    <a class="nav-link" href="tkit-jpa.html">JPA Persistence</a>
+    <a class="nav-link" href="tkit-quarkus-jpa.html">JPA Persistence</a>
   </li>
   <li class="nav-item" data-depth="1">
-    <a class="nav-link" href="tkit-jpa-models.html">JPA Persistence Models</a>
+    <a class="nav-link" href="tkit-quarkus-jpa-models.html">JPA Persistence Models</a>
   </li>
   <li class="nav-item" data-depth="1">
-    <a class="nav-link" href="tkit-jpa-tenant.html">JPA Persistence Tenant Resolver</a>
+    <a class="nav-link" href="tkit-quarkus-jpa-tenant.html">JPA Persistence Tenant Resolver</a>
   </li>
   <li class="nav-item" data-depth="1">
-    <a class="nav-link" href="tkit-log-cdi.html">CDI Log Interceptor</a>
+    <a class="nav-link" href="tkit-quarkus-log-cdi.html">CDI Log Interceptor</a>
   </li>
   <li class="nav-item" data-depth="1">
-    <a class="nav-link" href="tkit-log-json.html">Json Log Format</a>
+    <a class="nav-link" href="tkit-quarkus-log-json.html">Json Log Format</a>
   </li>
   <li class="nav-item" data-depth="1">
-    <a class="nav-link" href="tkit-log-rs.html">Rest Log Interceptor</a>
+    <a class="nav-link" href="tkit-quarkus-log-rs.html">Rest Log Interceptor</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="tkit-quarkus-rest.html">Rest Extension</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="tkit-quarkus-rest-context.html">Rest Context Extension</a>
   </li>
   <li class="nav-item is-current-page" data-depth="1">
-    <a class="nav-link" href="tkit-rest.html">Rest Extension</a>
-  </li>
-  <li class="nav-item" data-depth="1">
-    <a class="nav-link" href="tkit-rest-context.html">Rest Context Extension</a>
-  </li>
-  <li class="nav-item" data-depth="1">
-    <a class="nav-link" href="tkit-security.html">Rest Security</a>
+    <a class="nav-link" href="tkit-quarkus-security.html">Rest Security</a>
   </li>
 </ul>
   </li>
@@ -128,10 +128,10 @@
 <nav class="breadcrumbs" aria-label="breadcrumbs">
   <ul>
     <li><a href="index.html">1000kit Quarkus</a></li>
-    <li><a href="tkit-rest.html">Rest Extension</a></li>
+    <li><a href="tkit-quarkus-security.html">Rest Security</a></li>
   </ul>
 </nav>
-  <div class="edit-this-page"><a href="https://github.com/1000kit/tkit-quarkus/edit/main/docs/modules/tkit-quarkus/pages/tkit-rest.adoc">Edit this Page</a></div>
+  <div class="edit-this-page"><a href="https://github.com/1000kit/tkit-quarkus/edit/main/docs/modules/tkit-quarkus/pages/tkit-quarkus-security.adoc">Edit this Page</a></div>
   </div>
   <div class="content">
 <aside class="toc sidebar" data-title="Contents" data-levels="2">
@@ -139,15 +139,15 @@
 </aside>
 <article class="doc">
 <div class="sect1">
-<h2 id="_tkit_quarkus_rest"><a class="anchor" href="#_tkit_quarkus_rest"></a>tkit-quarkus-rest</h2>
+<h2 id="_tkit_quarkus_security"><a class="anchor" href="#_tkit_quarkus_security"></a>tkit-quarkus-security</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>This extension contains <code>OffsetDateTimeMapper</code> Jackson DateTimeOffset convertor for path and body parameters. The <code>RegisterCustomModuleCustomizer</code> update Jackson configuration to write <code>date-time</code> as string.</p>
+<p>Enhanced security configuration</p>
 </div>
 <div class="sect2">
 <h3 id="_installation"><a class="anchor" href="#_installation"></a>Installation</h3>
 <div class="paragraph">
-<p>If you want to use this extension, you need to add the <code>org.tkit.quarkus.lib:tkit-quarkus-rest</code> extension first to your build file.</p>
+<p>If you want to use this extension, you need to add the <code>org.tkit.quarkus.lib:tkit-quarkus-security</code> extension first to your build file.</p>
 </div>
 <div class="paragraph">
 <p>For instance, with Maven, add the following dependency to your POM file:</p>
@@ -156,11 +156,48 @@
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">&lt;dependency&gt;
     &lt;groupId&gt;org.tkit.quarkus.lib&lt;/groupId&gt;
-    &lt;artifactId&gt;tkit-quarkus-rest&lt;/artifactId&gt;
+    &lt;artifactId&gt;tkit-quarkus-security&lt;/artifactId&gt;
     &lt;version&gt;2.16.0&lt;/version&gt;
 &lt;/dependency&gt;</code></pre>
 </div>
 </div>
+</div>
+<div class="sect2">
+<h3 id="_configuration"><a class="anchor" href="#_configuration"></a>Configuration</h3>
+<div class="paragraph configuration-legend">
+<p><span class="icon"><i class="fa fa-lock" title="Fixed at build time"></i></span> Configuration property fixed at build time - All other configuration properties are overridable at runtime</p>
+</div>
+<table class="tableblock frame-all grid-all stretch configuration-reference searchable">
+<colgroup>
+<col style="width: 80%;">
+<col style="width: 10%;">
+<col style="width: 10%;">
+</colgroup>
+<tbody>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock"><a id="tkit-quarkus-security_configuration"></a><a href="#tkit-quarkus-security_configuration">Configuration property</a></p></th>
+<th class="tableblock halign-left valign-middle"><p class="tableblock">Type</p></th>
+<th class="tableblock halign-left valign-middle"><p class="tableblock">Default</p></th>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><a id="tkit-quarkus-security_tkit-security-auth-enabled"></a><code><a href="#tkit-quarkus-security_tkit-security-auth-enabled">tkit.security.auth.enabled</a></code></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>Disable or enabled authentication</p>
+</div>
+<div class="paragraph">
+<p>Environment variable: <code>TKIT_SECURITY_AUTH_ENABLED</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">boolean</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><code>true</code></p></td>
+</tr>
+</tbody>
+</table>
 </div>
 </div>
 </div>

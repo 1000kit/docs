@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <title>Untitled :: 1000kit Docs</title>
-    <link rel="canonical" href="https://1000kit.github.io/tkit-quarkus/current/tkit-quarkus/includes/tkit-rs-context-token.html">
+    <link rel="canonical" href="https://1000kit.github.io/tkit-quarkus/current/tkit-quarkus/includes/tkit-quarkus-data-import.html">
     <meta name="generator" content="Antora 3.1.7">
     <link rel="stylesheet" href="../../../../_/css/site.css">
     <script>var uiRootPath = '../../../../_'</script>
@@ -54,40 +54,40 @@
     <a class="nav-link" href="../index.html">1000kit Quarkus</a>
   </li>
   <li class="nav-item" data-depth="1">
-    <a class="nav-link" href="../tkit-context.html">Context</a>
+    <a class="nav-link" href="../tkit-quarkus-context.html">Context</a>
   </li>
   <li class="nav-item" data-depth="1">
-    <a class="nav-link" href="../tkit-dataimport.html">Master Data Import</a>
+    <a class="nav-link" href="../tkit-quarkus-data-import.html">Master Data Import</a>
   </li>
   <li class="nav-item" data-depth="1">
-    <a class="nav-link" href="../tkit-db-import.html">Test Database Import</a>
+    <a class="nav-link" href="../tkit-quarkus-db-import.html">Test Database Import</a>
   </li>
   <li class="nav-item" data-depth="1">
-    <a class="nav-link" href="../tkit-jpa.html">JPA Persistence</a>
+    <a class="nav-link" href="../tkit-quarkus-jpa.html">JPA Persistence</a>
   </li>
   <li class="nav-item" data-depth="1">
-    <a class="nav-link" href="../tkit-jpa-models.html">JPA Persistence Models</a>
+    <a class="nav-link" href="../tkit-quarkus-jpa-models.html">JPA Persistence Models</a>
   </li>
   <li class="nav-item" data-depth="1">
-    <a class="nav-link" href="../tkit-jpa-tenant.html">JPA Persistence Tenant Resolver</a>
+    <a class="nav-link" href="../tkit-quarkus-jpa-tenant.html">JPA Persistence Tenant Resolver</a>
   </li>
   <li class="nav-item" data-depth="1">
-    <a class="nav-link" href="../tkit-log-cdi.html">CDI Log Interceptor</a>
+    <a class="nav-link" href="../tkit-quarkus-log-cdi.html">CDI Log Interceptor</a>
   </li>
   <li class="nav-item" data-depth="1">
-    <a class="nav-link" href="../tkit-log-json.html">Json Log Format</a>
+    <a class="nav-link" href="../tkit-quarkus-log-json.html">Json Log Format</a>
   </li>
   <li class="nav-item" data-depth="1">
-    <a class="nav-link" href="../tkit-log-rs.html">Rest Log Interceptor</a>
+    <a class="nav-link" href="../tkit-quarkus-log-rs.html">Rest Log Interceptor</a>
   </li>
   <li class="nav-item" data-depth="1">
-    <a class="nav-link" href="../tkit-rest.html">Rest Extension</a>
+    <a class="nav-link" href="../tkit-quarkus-rest.html">Rest Extension</a>
   </li>
   <li class="nav-item" data-depth="1">
-    <a class="nav-link" href="../tkit-rest-context.html">Rest Context Extension</a>
+    <a class="nav-link" href="../tkit-quarkus-rest-context.html">Rest Context Extension</a>
   </li>
   <li class="nav-item" data-depth="1">
-    <a class="nav-link" href="../tkit-security.html">Rest Security</a>
+    <a class="nav-link" href="../tkit-quarkus-security.html">Rest Security</a>
   </li>
 </ul>
   </li>
@@ -127,7 +127,7 @@
   <a href="../../../../index/current/index.html" class="home-link"></a>
 <nav class="breadcrumbs" aria-label="breadcrumbs">
 </nav>
-  <div class="edit-this-page"><a href="https://github.com/1000kit/tkit-quarkus/edit/main/docs/modules/tkit-quarkus/pages/includes/tkit-rs-context-token.adoc">Edit this Page</a></div>
+  <div class="edit-this-page"><a href="https://github.com/1000kit/tkit-quarkus/edit/main/docs/modules/tkit-quarkus/pages/includes/tkit-quarkus-data-import.adoc">Edit this Page</a></div>
   </div>
   <div class="content">
 <aside class="toc sidebar" data-title="Contents" data-levels="2">
@@ -145,21 +145,21 @@
 </colgroup>
 <tbody>
 <tr>
-<th class="tableblock halign-left valign-top"><p class="tableblock"><a id="tkit-rs-context-token_configuration"></a><a href="#tkit-rs-context-token_configuration">Configuration property</a></p></th>
+<th class="tableblock halign-left valign-top"><p class="tableblock"><a id="tkit-quarkus-data-import_configuration"></a><a href="#tkit-quarkus-data-import_configuration">Configuration property</a></p></th>
 <th class="tableblock halign-left valign-middle"><p class="tableblock">Type</p></th>
 <th class="tableblock halign-left valign-middle"><p class="tableblock">Default</p></th>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p><a id="tkit-rs-context-token_tkit-rs-context-token-enabled"></a><code><a href="#tkit-rs-context-token_tkit-rs-context-token-enabled">tkit.rs.context.token.enabled</a></code></p>
+<p><a id="tkit-quarkus-data-import_tkit-dataimport-enabled"></a><code><a href="#tkit-quarkus-data-import_tkit-dataimport-enabled">tkit.dataimport.enabled</a></code></p>
 </div>
 <div class="openblock description">
 <div class="content">
 <div class="paragraph">
-<p>Enable or disable token parsing.</p>
+<p>If set to true, the application will import data</p>
 </div>
 <div class="paragraph">
-<p>Environment variable: <code>TKIT_RS_CONTEXT_TOKEN_ENABLED</code></p>
+<p>Environment variable: <code>TKIT_DATAIMPORT_ENABLED</code></p>
 </div>
 </div>
 </div></div></td>
@@ -168,15 +168,100 @@
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p><a id="tkit-rs-context-token_tkit-rs-context-token-mandatory"></a><code><a href="#tkit-rs-context-token_tkit-rs-context-token-mandatory">tkit.rs.context.token.mandatory</a></code></p>
+<p><a id="tkit-quarkus-data-import_tkit-dataimport-error-msg-length"></a><code><a href="#tkit-quarkus-data-import_tkit-dataimport-error-msg-length">tkit.dataimport.error-msg-length</a></code></p>
 </div>
 <div class="openblock description">
 <div class="content">
 <div class="paragraph">
-<p>Make the token mandatory (not null)</p>
+<p>Error message length in the database</p>
 </div>
 <div class="paragraph">
-<p>Environment variable: <code>TKIT_RS_CONTEXT_TOKEN_MANDATORY</code></p>
+<p>Environment variable: <code>TKIT_DATAIMPORT_ERROR_MSG_LENGTH</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">int</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><code>255</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><a id="tkit-quarkus-data-import_tkit-dataimport-configurations-configurations-bean"></a><code><a href="#tkit-quarkus-data-import_tkit-dataimport-configurations-configurations-bean">tkit.dataimport.configurations."configurations".bean</a></code></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>The bean key</p>
+</div>
+<div class="paragraph">
+<p>Environment variable: <code>TKIT_DATAIMPORT_CONFIGURATIONS__CONFIGURATIONS__BEAN</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">` `</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><a id="tkit-quarkus-data-import_tkit-dataimport-configurations-configurations-file"></a><code><a href="#tkit-quarkus-data-import_tkit-dataimport-configurations-configurations-file">tkit.dataimport.configurations."configurations".file</a></code></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>The path to the data source file</p>
+</div>
+<div class="paragraph">
+<p>Environment variable: <code>TKIT_DATAIMPORT_CONFIGURATIONS__CONFIGURATIONS__FILE</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">required <span class="icon"><i class="fa fa-exclamation-circle" title="Configuration property is required"></i></span></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><a id="tkit-quarkus-data-import_tkit-dataimport-configurations-configurations-metadata-metadata"></a><code><a href="#tkit-quarkus-data-import_tkit-dataimport-configurations-configurations-metadata-metadata">tkit.dataimport.configurations."configurations".metadata</a></code></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>The metadata for the execution</p>
+</div>
+<div class="paragraph">
+<p>Environment variable: <code>TKIT_DATAIMPORT_CONFIGURATIONS__CONFIGURATIONS__METADATA</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><code>Map&lt;String,String&gt;</code></p></td>
+<td class="tableblock halign-left valign-middle"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><a id="tkit-quarkus-data-import_tkit-dataimport-configurations-configurations-enabled"></a><code><a href="#tkit-quarkus-data-import_tkit-dataimport-configurations-configurations-enabled">tkit.dataimport.configurations."configurations".enabled</a></code></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>If set to true, the application will run this import data</p>
+</div>
+<div class="paragraph">
+<p>Environment variable: <code>TKIT_DATAIMPORT_CONFIGURATIONS__CONFIGURATIONS__ENABLED</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">boolean</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><code>true</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><a id="tkit-quarkus-data-import_tkit-dataimport-configurations-configurations-stop-at-error"></a><code><a href="#tkit-quarkus-data-import_tkit-dataimport-configurations-configurations-stop-at-error">tkit.dataimport.configurations."configurations".stop-at-error</a></code></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>If set to true, the application will stop if data import failed</p>
+</div>
+<div class="paragraph">
+<p>Environment variable: <code>TKIT_DATAIMPORT_CONFIGURATIONS__CONFIGURATIONS__STOP_AT_ERROR</code></p>
 </div>
 </div>
 </div></div></td>
@@ -185,88 +270,20 @@
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p><a id="tkit-rs-context-token_tkit-rs-context-token-type"></a><code><a href="#tkit-rs-context-token_tkit-rs-context-token-type">tkit.rs.context.token.type</a></code></p>
+<p><a id="tkit-quarkus-data-import_tkit-dataimport-configurations-configurations-retry-error-import"></a><code><a href="#tkit-quarkus-data-import_tkit-dataimport-configurations-configurations-retry-error-import">tkit.dataimport.configurations."configurations".retry-error-import</a></code></p>
 </div>
 <div class="openblock description">
 <div class="content">
 <div class="paragraph">
-<p>Type of the token for new created token</p>
+<p>If set to false, the application will not retry error import.</p>
 </div>
 <div class="paragraph">
-<p>Environment variable: <code>TKIT_RS_CONTEXT_TOKEN_TYPE</code></p>
-</div>
-</div>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock"><code>principal-token</code></p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p><a id="tkit-rs-context-token_tkit-rs-context-token-verify"></a><code><a href="#tkit-rs-context-token_tkit-rs-context-token-verify">tkit.rs.context.token.verify</a></code></p>
-</div>
-<div class="openblock description">
-<div class="content">
-<div class="paragraph">
-<p>Verify token</p>
-</div>
-<div class="paragraph">
-<p>Environment variable: <code>TKIT_RS_CONTEXT_TOKEN_VERIFY</code></p>
+<p>Environment variable: <code>TKIT_DATAIMPORT_CONFIGURATIONS__CONFIGURATIONS__RETRY_ERROR_IMPORT</code></p>
 </div>
 </div>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">boolean</p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock"><code>false</code></p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p><a id="tkit-rs-context-token_tkit-rs-context-token-public-key-location-enabled"></a><code><a href="#tkit-rs-context-token_tkit-rs-context-token-public-key-location-enabled">tkit.rs.context.token.public-key-location.enabled</a></code></p>
-</div>
-<div class="openblock description">
-<div class="content">
-<div class="paragraph">
-<p>Use token realm for the public key.</p>
-</div>
-<div class="paragraph">
-<p>Environment variable: <code>TKIT_RS_CONTEXT_TOKEN_PUBLIC_KEY_LOCATION_ENABLED</code></p>
-</div>
-</div>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">boolean</p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock"><code>false</code></p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p><a id="tkit-rs-context-token_tkit-rs-context-token-public-key-location-suffix"></a><code><a href="#tkit-rs-context-token_tkit-rs-context-token-public-key-location-suffix">tkit.rs.context.token.public-key-location.suffix</a></code></p>
-</div>
-<div class="openblock description">
-<div class="content">
-<div class="paragraph">
-<p>Public key server suffix</p>
-</div>
-<div class="paragraph">
-<p>Environment variable: <code>TKIT_RS_CONTEXT_TOKEN_PUBLIC_KEY_LOCATION_SUFFIX</code></p>
-</div>
-</div>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock"><code>/protocol/openid-connect/certs</code></p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p><a id="tkit-rs-context-token_tkit-rs-context-token-header-param"></a><code><a href="#tkit-rs-context-token_tkit-rs-context-token-header-param">tkit.rs.context.token.header-param</a></code></p>
-</div>
-<div class="openblock description">
-<div class="content">
-<div class="paragraph">
-<p>Principal token header parameter.</p>
-</div>
-<div class="paragraph">
-<p>Environment variable: <code>TKIT_RS_CONTEXT_TOKEN_HEADER_PARAM</code></p>
-</div>
-</div>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock"><code>apm-principal-token</code></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><code>true</code></p></td>
 </tr>
 </tbody>
 </table>
