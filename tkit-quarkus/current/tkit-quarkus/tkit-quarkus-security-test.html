@@ -3,8 +3,8 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>1000kit Quarkus Extensions :: 1000kit Docs</title>
-    <link rel="canonical" href="https://1000kit.github.io/tkit-quarkus/current/tkit-quarkus/index.html">
+    <title>Untitled :: 1000kit Docs</title>
+    <link rel="canonical" href="https://1000kit.github.io/tkit-quarkus/current/tkit-quarkus/tkit-quarkus-security-test.html">
     <meta name="generator" content="Antora 3.1.7">
     <link rel="stylesheet" href="../../../_/css/site.css">
     <link href="../../../_/css/fontawesome.css" rel="stylesheet" />
@@ -52,7 +52,7 @@
 <ul class="nav-list">
   <li class="nav-item" data-depth="0">
 <ul class="nav-list">
-  <li class="nav-item is-current-page" data-depth="1">
+  <li class="nav-item" data-depth="1">
     <a class="nav-link" href="index.html">1000kit Quarkus</a>
   </li>
   <li class="nav-item" data-depth="1">
@@ -91,7 +91,7 @@
   <li class="nav-item" data-depth="1">
     <a class="nav-link" href="tkit-quarkus-security.html">Rest Security</a>
   </li>
-  <li class="nav-item" data-depth="1">
+  <li class="nav-item is-current-page" data-depth="1">
     <a class="nav-link" href="tkit-quarkus-security-test.html">Rest Security Tests</a>
   </li>
 </ul>
@@ -133,96 +133,123 @@
 <nav class="breadcrumbs" aria-label="breadcrumbs">
   <ul>
     <li><a href="index.html">1000kit Quarkus</a></li>
+    <li><a href="tkit-quarkus-security-test.html">Rest Security Tests</a></li>
   </ul>
 </nav>
-  <div class="edit-this-page"><a href="https://github.com/1000kit/tkit-quarkus/edit/main/docs/modules/tkit-quarkus/pages/index.adoc">Edit this Page</a></div>
+  <div class="edit-this-page"><a href="https://github.com/1000kit/tkit-quarkus/edit/main/docs/modules/tkit-quarkus/pages/tkit-quarkus-security-test.adoc">Edit this Page</a></div>
   </div>
   <div class="content">
 <aside class="toc sidebar" data-title="Contents" data-levels="2">
   <div class="toc-menu"></div>
 </aside>
 <article class="doc">
-<h1 class="page">1000kit Quarkus Extensions</h1>
 <div class="sect1">
-<h2 id="_installation"><a class="anchor" href="#_installation"></a>Installation</h2>
+<h2 id="_tkit_quarkus_security_test"><a class="anchor" href="#_tkit_quarkus_security_test"></a>tkit-quarkus-security-test</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Include the following bom artifact into your pom or parent pom and then pick the components you need.</p>
+<p>Enhanced security configuration</p>
+</div>
+<div class="sect2">
+<h3 id="_installation"><a class="anchor" href="#_installation"></a>Installation</h3>
+<div class="paragraph">
+<p>If you want to use this extension, you need to add the <code>org.tkit.quarkus.lib:tkit-quarkus-security-test</code> extension first to your build file.</p>
+</div>
+<div class="paragraph">
+<p>For instance, with Maven, add the following dependency to your POM file:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">&lt;dependencyManagement&gt;
-    &lt;dependencies&gt;
-        &lt;dependency&gt;
-            &lt;groupId&gt;org.tkit.quarkus.lib&lt;/groupId&gt;
-            &lt;artifactId&gt;tkit-quarkus-bom&lt;/artifactId&gt;
-            &lt;version&gt;&lt;/version&gt;
-            &lt;type&gt;pom&lt;/type&gt;
-            &lt;scope&gt;import&lt;/scope&gt;
-        &lt;/dependency&gt;
-    &lt;/dependencies&gt;
-&lt;/dependencyManagement&gt;</code></pre>
-</div>
-</div>
-<div class="admonitionblock tip">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-tip" title="Tip"></i>
-</td>
-<td class="content">
-Some component come with additional documentation and configuration - check the 'Documentation' link for particular section.
-</td>
-</tr>
-</table>
+<pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">&lt;dependency&gt;
+    &lt;groupId&gt;org.tkit.quarkus.lib&lt;/groupId&gt;
+    &lt;artifactId&gt;tkit-quarkus-security-test&lt;/artifactId&gt;
+    &lt;version&gt;&lt;/version&gt;
+    &lt;scope&gt;test&lt;/scope&gt;
+&lt;/dependency&gt;</code></pre>
 </div>
 </div>
 </div>
-<div class="sect1">
-<h2 id="_components"><a class="anchor" href="#_components"></a>Components</h2>
-<div class="sectionbody">
+<div class="sect2">
+<h3 id="_usage"><a class="anchor" href="#_usage"></a>Usage</h3>
 <div class="paragraph">
-<p>Include the component in your project by including the corresponding dependency.</p>
+<p>To work in @QuarkusIntegrationTest tests set the property</p>
 </div>
-<div class="ulist">
-<ul>
-<li>
-<p><a href="tkit-quarkus-context.html" class="xref page">Context</a></p>
-</li>
-<li>
-<p><a href="tkit-quarkus-data-import.html" class="xref page">Master Data Import</a></p>
-</li>
-<li>
-<p><a href="tkit-quarkus-db-import.html" class="xref page">Test Database Import</a></p>
-</li>
-<li>
-<p><a href="tkit-quarkus-jpa.html" class="xref page">JPA Persistence</a></p>
-</li>
-<li>
-<p><a href="tkit-quarkus-jpa-models.html" class="xref page">JPA Persistence Models</a></p>
-</li>
-<li>
-<p><a href="tkit-quarkus-jpa-tenant.html" class="xref page">JPA Persistence Tenant Resolver</a></p>
-</li>
-<li>
-<p><a href="tkit-quarkus-log-cdi.html" class="xref page">CDI Log Interceptor</a></p>
-</li>
-<li>
-<p><a href="tkit-quarkus-log-json.html" class="xref page">Json Log Format</a></p>
-</li>
-<li>
-<p><a href="tkit-quarkus-log-rs.html" class="xref page">Rest Log Interceptor</a></p>
-</li>
-<li>
-<p><a href="tkit-quarkus-rest.html" class="xref page">Rest Extension</a></p>
-</li>
-<li>
-<p><a href="tkit-quarkus-rest-context.html" class="xref page">Rest Context Extension</a></p>
-</li>
-<li>
-<p><a href="tkit-quarkus-security.html" class="xref page">Rest Security</a></p>
-</li>
-</ul>
+<div class="paragraph">
+<p><strong>quarkus.test.enable-callbacks-for-integration-tests = true</strong></p>
+</div>
+<div class="paragraph">
+<p>in your application.properties.</p>
+</div>
+<div class="paragraph">
+<p>To deactivate the automated security tests of AbstractSecurityTests use</p>
+</div>
+<div class="paragraph">
+<p><strong>-Dtkit.security-test.disabled=true</strong> as system property</p>
+</div>
+<div class="paragraph">
+<p>e.g.
+<strong>mvn clean verify -Dtkit.security-test.disabled=true</strong></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_security_tests"><a class="anchor" href="#_security_tests"></a>Security Tests</h3>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@QuarkusTest
+public class SecurityTest extends AbstractSecurityTest {
+    @Override
+    public SecurityTestConfig getConfig() {
+        SecurityTestConfig config = new SecurityTestConfig();
+        config.addConfig("write", "/users/1", 200, List.of("ocx-user:write"), "post");
+        config.addConfig("read", "/users/1", 200, List.of("ocx-user:read"), "get");
+        return config;
+    }
+}</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_generate_keycloak_clients_via_annotation"><a class="anchor" href="#_generate_keycloak_clients_via_annotation"></a>Generate Keycloak clients via annotation</h3>
+<div class="sect3">
+<h4 id="_class_level"><a class="anchor" href="#_class_level"></a>Class Level</h4>
+<div class="paragraph">
+<p>Generated for all test methods in this class</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@GenerateKeycloakClient(clientName = "testClient", scopes = { "ocx-user:read", "ocx-user:write" })
+public class UserRestControllerTest {
+    @Test
+    public void testUserRestClient() {
+        given().header("Content-Type", "application/json")
+                .auth().oauth2(getKeycloakClientToken("testClient"))
+                .get("/1")
+                .then()
+                .statusCode(Response.Status.OK.getStatusCode());
+    }
+}</code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_method_level"><a class="anchor" href="#_method_level"></a>Method Level</h4>
+<div class="paragraph">
+<p>Generated for the annotated method</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">    @Test
+    @GenerateKeycloakClient(clientName = "methodLevelClient", scopes = { "ocx-user:read", "ocx-user:write" })
+    public void testCreateUserRestClient() {
+        given().header("Content-Type", "application/json")
+                .body("{\"id\":\"2\"}")
+                .auth().oauth2(getKeycloakClientToken("methodLevelClient"))
+                .post("/2")
+                .then()
+                .statusCode(Response.Status.OK.getStatusCode());
+    }</code></pre>
+</div>
+</div>
+</div>
 </div>
 </div>
 </div>
