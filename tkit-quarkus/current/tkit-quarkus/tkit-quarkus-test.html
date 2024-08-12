@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <title>Untitled :: 1000kit Docs</title>
-    <link rel="canonical" href="https://1000kit.github.io/tkit-quarkus/current/tkit-quarkus/tkit-quarkus-db-import.html">
+    <link rel="canonical" href="https://1000kit.github.io/tkit-quarkus/current/tkit-quarkus/tkit-quarkus-test.html">
     <meta name="generator" content="Antora 3.1.7">
     <link rel="stylesheet" href="../../../_/css/site.css">
     <link href="../../../_/css/fontawesome.css" rel="stylesheet" />
@@ -61,7 +61,7 @@
   <li class="nav-item" data-depth="1">
     <a class="nav-link" href="tkit-quarkus-data-import.html">Master Data Import</a>
   </li>
-  <li class="nav-item is-current-page" data-depth="1">
+  <li class="nav-item" data-depth="1">
     <a class="nav-link" href="tkit-quarkus-db-import.html">Test Database Import</a>
   </li>
   <li class="nav-item" data-depth="1">
@@ -94,7 +94,7 @@
   <li class="nav-item" data-depth="1">
     <a class="nav-link" href="tkit-quarkus-security-test.html">Rest Security Tests</a>
   </li>
-  <li class="nav-item" data-depth="1">
+  <li class="nav-item is-current-page" data-depth="1">
     <a class="nav-link" href="tkit-quarkus-test.html">Tests</a>
   </li>
 </ul>
@@ -136,10 +136,10 @@
 <nav class="breadcrumbs" aria-label="breadcrumbs">
   <ul>
     <li><a href="index.html">1000kit Quarkus</a></li>
-    <li><a href="tkit-quarkus-db-import.html">Test Database Import</a></li>
+    <li><a href="tkit-quarkus-test.html">Tests</a></li>
   </ul>
 </nav>
-  <div class="edit-this-page"><a href="https://github.com/1000kit/tkit-quarkus/edit/main/docs/modules/tkit-quarkus/pages/tkit-quarkus-db-import.adoc">Edit this Page</a></div>
+  <div class="edit-this-page"><a href="https://github.com/1000kit/tkit-quarkus/edit/main/docs/modules/tkit-quarkus/pages/tkit-quarkus-test.adoc">Edit this Page</a></div>
   </div>
   <div class="content">
 <aside class="toc sidebar" data-title="Contents" data-levels="2">
@@ -147,15 +147,15 @@
 </aside>
 <article class="doc">
 <div class="sect1">
-<h2 id="_tkit_quarkus_db_import"><a class="anchor" href="#_tkit_quarkus_db_import"></a>tkit-quarkus-db-import</h2>
+<h2 id="_tkit_quarkus_security_test"><a class="anchor" href="#_tkit_quarkus_security_test"></a>tkit-quarkus-security-test</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Test extension for data import from excel into database during unit tests.</p>
+<p>Enhanced test configuration</p>
 </div>
 <div class="sect2">
 <h3 id="_installation"><a class="anchor" href="#_installation"></a>Installation</h3>
 <div class="paragraph">
-<p>If you want to use this extension, you need to add the <code>org.tkit.quarkus.lib:tkit-quarkus-db-import</code> extension first to your build file.</p>
+<p>If you want to use this extension, you need to add the <code>org.tkit.quarkus.lib:tkit-quarkus-test</code> extension first to your build file.</p>
 </div>
 <div class="paragraph">
 <p>For instance, with Maven, add the following dependency to your POM file:</p>
@@ -164,75 +164,40 @@
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">&lt;dependency&gt;
     &lt;groupId&gt;org.tkit.quarkus.lib&lt;/groupId&gt;
-    &lt;artifactId&gt;tkit-quarkus-db-import&lt;/artifactId&gt;
+    &lt;artifactId&gt;tkit-quarkus-test&lt;/artifactId&gt;
     &lt;version&gt;2.29.0&lt;/version&gt;
+    &lt;scope&gt;test&lt;/scope&gt;
 &lt;/dependency&gt;</code></pre>
 </div>
 </div>
 </div>
 <div class="sect2">
 <h3 id="_usage"><a class="anchor" href="#_usage"></a>Usage</h3>
+<div class="sect3">
+<h4 id="_rest_assured_uri_overwrite"><a class="anchor" href="#_rest_assured_uri_overwrite"></a>Rest-Assured URI overwrite</h4>
 <div class="paragraph">
-<p>The <code>@WithDBData</code> annotation to import database data before testing can be used at the class level or method level.</p>
-</div>
-<div class="paragraph">
-<p>Example of using the annotation on the class level</p>
+<p>To enabled URI overwrite for integration test add <code>tkit.test.integration-test-enabled</code> system property to the <code>maven-failsafe-plugin</code> plugin.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@QuarkusTest
-@TestHTTPEndpoint(ThemesRestController.class)
-@WithDBData(value = "data/testdata.xml", deleteBeforeInsert = true, deleteAfterTest = true, rinseAndRepeat = true)
-class ThemesRestControllerTest {
-
-    // test methods
-
-}</code></pre>
+<pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">&lt;plugin&gt;
+    &lt;groupId&gt;org.apache.maven.plugins&lt;/groupId&gt;
+    &lt;artifactId&gt;maven-failsafe-plugin&lt;/artifactId&gt;
+    &lt;executions&gt;
+        &lt;execution&gt;
+            &lt;goals&gt;
+                &lt;goal&gt;integration-test&lt;/goal&gt;
+                &lt;goal&gt;verify&lt;/goal&gt;
+            &lt;/goals&gt;
+            &lt;configuration&gt;
+                &lt;systemPropertyVariables&gt;
+                    &lt;tkit.test.integration-test-enabled&gt;true&lt;/tkit.test.integration-test-enabled&gt;
+                &lt;/systemPropertyVariables&gt;
+            &lt;/configuration&gt;
+        &lt;/execution&gt;
+    &lt;/executions&gt;
+&lt;/plugin&gt;</code></pre>
 </div>
-</div>
-<div class="paragraph">
-<p>Example of using the annotation on the method level</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@QuarkusTest
-@TestHTTPEndpoint(UserRestController.class)
-class UserRestControllerTest {
-
-     @Test
-    @WithDBData(value = { "data/test.xml" })
-    public void createUserTest() {
-        // test
-    }
-
-}</code></pre>
-</div>
-</div>
-<div class="admonitionblock important">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-important" title="Important"></i>
-</td>
-<td class="content">
-Only <code>FlatXmlDataSet</code> format of the <code>DBUnit</code> is currently supported.
-</td>
-</tr>
-</table>
-</div>
-<div class="paragraph">
-<p>The <code>XML</code> file must be in the classpath. The best practice is to place this file in this directory <code>src/test/resources</code>.</p>
-</div>
-<div class="paragraph">
-<p>Example:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">&lt;?xml version="1.0" encoding="UTF-8"?&gt;
-&lt;dataset&gt;
-    &lt;T_USER guid="U_GUID_3" optlock="3" username="TestUser" email="test@test"/&gt;
-    &lt;T_USER guid="U_GUID_4" optlock="3" username="TestUser" email="test@test"/&gt;
-&lt;/dataset&gt;</code></pre>
 </div>
 </div>
 </div>
@@ -249,43 +214,111 @@ Only <code>FlatXmlDataSet</code> format of the <code>DBUnit</code> is currently 
 </colgroup>
 <tbody>
 <tr>
-<th class="tableblock halign-left valign-top"><p class="tableblock"><a id="tkit-quarkus-test-db-import_configuration"></a><a href="#tkit-quarkus-test-db-import_configuration">Configuration property</a></p></th>
+<th class="tableblock halign-left valign-top"><p class="tableblock"><a id="tkit-quarkus-test_configuration"></a><a href="#tkit-quarkus-test_configuration">Configuration property</a></p></th>
 <th class="tableblock halign-left valign-middle"><p class="tableblock">Type</p></th>
 <th class="tableblock halign-left valign-middle"><p class="tableblock">Default</p></th>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p><span class="icon"><i class="fa fa-lock" title="Fixed at build time"></i></span> <a id="tkit-quarkus-test-db-import_tkit-db-import-devservices-enabled"></a><code><a href="#tkit-quarkus-test-db-import_tkit-db-import-devservices-enabled">tkit.db-import.devservices.enabled</a></code></p>
+<p><a id="tkit-quarkus-test_tkit-test-integration-test-enabled"></a><code><a href="#tkit-quarkus-test_tkit-test-integration-test-enabled">tkit.test.integration-test-enabled</a></code></p>
 </div>
 <div class="openblock description">
 <div class="content">
 <div class="paragraph">
-<p>If Dev Services for db-import has been explicitly enabled or disabled. Dev Services are generally enabled by default, unless there is an existing configuration present.</p>
+<p>Disable or enabled integration test flag</p>
 </div>
 <div class="paragraph">
-<p>Environment variable: <code>TKIT_DB_IMPORT_DEVSERVICES_ENABLED</code></p>
+<p>Environment variable: <code>TKIT_TEST_INTEGRATION_TEST_ENABLED</code></p>
 </div>
 </div>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">boolean</p></td>
-<td class="tableblock halign-left valign-middle"></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><code>false</code></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p><span class="icon"><i class="fa fa-lock" title="Fixed at build time"></i></span> <a id="tkit-quarkus-test-db-import_tkit-db-import-devservices-db-image-name"></a><code><a href="#tkit-quarkus-test-db-import_tkit-db-import-devservices-db-image-name">tkit.db-import.devservices.db-image-name</a></code></p>
+<p><a id="tkit-quarkus-test_tkit-test-ci-enabled"></a><code><a href="#tkit-quarkus-test_tkit-test-ci-enabled">tkit.test.ci.enabled</a></code></p>
 </div>
 <div class="openblock description">
 <div class="content">
 <div class="paragraph">
-<p>The db image to use.</p>
+<p>Disable or enabled for ci pipeline</p>
 </div>
 <div class="paragraph">
-<p>Environment variable: <code>TKIT_DB_IMPORT_DEVSERVICES_DB_IMAGE_NAME</code></p>
+<p>Environment variable: <code>TKIT_TEST_CI_ENABLED</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">boolean</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><code>true</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><a id="tkit-quarkus-test_tkit-test-ci-env-name"></a><code><a href="#tkit-quarkus-test_tkit-test-ci-env-name">tkit.test.ci.env-name</a></code></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>The name of environment variable to check if we are running in the pipe.</p>
+</div>
+<div class="paragraph">
+<p>Environment variable: <code>TKIT_TEST_CI_ENV_NAME</code></p>
 </div>
 </div>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock"><code>docker.io/postgres</code></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><code>GITLAB_CI</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><a id="tkit-quarkus-test_tkit-test-rest-assured-enabled"></a><code><a href="#tkit-quarkus-test_tkit-test-rest-assured-enabled">tkit.test.rest-assured.enabled</a></code></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>Disable or enabled rest-assured config.</p>
+</div>
+<div class="paragraph">
+<p>Environment variable: <code>TKIT_TEST_REST_ASSURED_ENABLED</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">boolean</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><code>true</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><a id="tkit-quarkus-test_tkit-test-rest-assured-overwrite-uri-enabled"></a><code><a href="#tkit-quarkus-test_tkit-test-rest-assured-overwrite-uri-enabled">tkit.test.rest-assured.overwrite-uri.enabled</a></code></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>Disable or enabled URI overwrite</p>
+</div>
+<div class="paragraph">
+<p>Environment variable: <code>TKIT_TEST_REST_ASSURED_OVERWRITE_URI_ENABLED</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">boolean</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><code>true</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><a id="tkit-quarkus-test_tkit-test-rest-assured-overwrite-uri-uri"></a><code><a href="#tkit-quarkus-test_tkit-test-rest-assured-overwrite-uri-uri">tkit.test.rest-assured.overwrite-uri.uri</a></code></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>Overwrite the RestAssured URI with a new value.</p>
+</div>
+<div class="paragraph">
+<p>Environment variable: <code>TKIT_TEST_REST_ASSURED_OVERWRITE_URI_URI</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><code><a href="http://docker" class="bare">http://docker</a></code></p></td>
 </tr>
 </tbody>
 </table>
