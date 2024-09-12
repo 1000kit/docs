@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <title>Untitled :: 1000kit Docs</title>
-    <link rel="canonical" href="https://1000kit.github.io/tkit-quarkus/current/tkit-quarkus/includes/tkit-quarkus-security.html">
+    <link rel="canonical" href="https://1000kit.github.io/tkit-quarkus/current/tkit-quarkus/includes/tkit-quarkus-log-cdi-build.html">
     <meta name="generator" content="Antora 3.1.7">
     <link rel="stylesheet" href="../../../../_/css/site.css">
     <link href="../../../../_/css/fontawesome.css" rel="stylesheet" />
@@ -135,7 +135,7 @@
   <a href="../../../../index/current/index.html" class="home-link"></a>
 <nav class="breadcrumbs" aria-label="breadcrumbs">
 </nav>
-  <div class="edit-this-page"><a href="https://github.com/1000kit/tkit-quarkus/edit/main/docs/modules/tkit-quarkus/pages/includes/tkit-quarkus-security.adoc">Edit this Page</a></div>
+  <div class="edit-this-page"><a href="https://github.com/1000kit/tkit-quarkus/edit/main/docs/modules/tkit-quarkus/pages/includes/tkit-quarkus-log-cdi-build.adoc">Edit this Page</a></div>
   </div>
   <div class="content">
 <aside class="toc sidebar" data-title="Contents" data-levels="2">
@@ -159,20 +159,20 @@
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p><a id="tkit-quarkus-security_tkit-security-auth-enabled"></a> <span class="property-path"><code>tkit.security.auth.enabled</code></span></p>
+<p><span class="icon"><i class="fa fa-lock" title="Fixed at build time"></i></span> <a id="tkit-quarkus-log-cdi_tkit-log-cdi-auto-discovery-packages"></a> <span class="property-path"><code>tkit.log.cdi.auto-discovery.packages</code></span></p>
 </div>
 <div class="openblock description">
 <div class="content">
 <div class="paragraph">
-<p>Disable or enabled authentication</p>
+<p>Binding includes packages.</p>
 </div>
 <div class="paragraph">
-<p>Environment variable: <code>TKIT_SECURITY_AUTH_ENABLED</code></p>
+<p>Environment variable: <code>TKIT_LOG_CDI_AUTO_DISCOVERY_PACKAGES</code></p>
 </div>
 </div>
 </div></div></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">boolean</p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock"><code>true</code></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">list of string</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><code>org.tkit</code></p></td>
 </tr>
 </tbody>
 </table>
