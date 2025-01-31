@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <title>Untitled :: 1000kit Docs</title>
-    <link rel="canonical" href="https://1000kit.github.io/tkit-quarkus/current/tkit-quarkus/tkit-quarkus-rest.html">
+    <link rel="canonical" href="https://1000kit.github.io/tkit-quarkus/current/tkit-quarkus/tkit-quarkus-metrics-test.html">
     <meta name="generator" content="Antora 3.1.7">
     <link rel="stylesheet" href="../../../_/css/site.css">
     <link href="../../../_/css/fontawesome.css" rel="stylesheet" />
@@ -82,7 +82,7 @@
   <li class="nav-item" data-depth="1">
     <a class="nav-link" href="tkit-quarkus-log-rs.html">Rest Log Interceptor</a>
   </li>
-  <li class="nav-item is-current-page" data-depth="1">
+  <li class="nav-item" data-depth="1">
     <a class="nav-link" href="tkit-quarkus-rest.html">Rest Extension</a>
   </li>
   <li class="nav-item" data-depth="1">
@@ -97,7 +97,7 @@
   <li class="nav-item" data-depth="1">
     <a class="nav-link" href="tkit-quarkus-security-test.html">Rest Security Tests</a>
   </li>
-  <li class="nav-item" data-depth="1">
+  <li class="nav-item is-current-page" data-depth="1">
     <a class="nav-link" href="tkit-quarkus-metrics-test.html">Metrics Tests</a>
   </li>
   <li class="nav-item" data-depth="1">
@@ -145,10 +145,10 @@
 <nav class="breadcrumbs" aria-label="breadcrumbs">
   <ul>
     <li><a href="index.html">1000kit Quarkus</a></li>
-    <li><a href="tkit-quarkus-rest.html">Rest Extension</a></li>
+    <li><a href="tkit-quarkus-metrics-test.html">Metrics Tests</a></li>
   </ul>
 </nav>
-  <div class="edit-this-page"><a href="https://github.com/1000kit/tkit-quarkus/edit/main/docs/modules/tkit-quarkus/pages/tkit-quarkus-rest.adoc">Edit this Page</a></div>
+  <div class="edit-this-page"><a href="https://github.com/1000kit/tkit-quarkus/edit/main/docs/modules/tkit-quarkus/pages/tkit-quarkus-metrics-test.adoc">Edit this Page</a></div>
   </div>
   <div class="content">
 <aside class="toc sidebar" data-title="Contents" data-levels="2">
@@ -156,15 +156,15 @@
 </aside>
 <article class="doc">
 <div class="sect1">
-<h2 id="_tkit_quarkus_rest"><a class="anchor" href="#_tkit_quarkus_rest"></a>tkit-quarkus-rest</h2>
+<h2 id="_tkit_quarkus_metrics_test"><a class="anchor" href="#_tkit_quarkus_metrics_test"></a>tkit-quarkus-metrics-test</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>This extension contains <code>OffsetDateTimeMapper</code> Jackson DateTimeOffset convertor for path and body parameters. The <code>RegisterCustomModuleCustomizer</code> update Jackson configuration to write <code>date-time</code> as string.</p>
+<p>Metrics test configuration</p>
 </div>
 <div class="sect2">
 <h3 id="_installation"><a class="anchor" href="#_installation"></a>Installation</h3>
 <div class="paragraph">
-<p>If you want to use this extension, you need to add the <code>org.tkit.quarkus.lib:tkit-quarkus-rest</code> extension first to your build file.</p>
+<p>If you want to use this extension, you need to add the <code>org.tkit.quarkus.lib:tkit-quarkus-metrics-test</code> extension first to your build file.</p>
 </div>
 <div class="paragraph">
 <p>For instance, with Maven, add the following dependency to your POM file:</p>
@@ -173,11 +173,124 @@
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">&lt;dependency&gt;
     &lt;groupId&gt;org.tkit.quarkus.lib&lt;/groupId&gt;
-    &lt;artifactId&gt;tkit-quarkus-rest&lt;/artifactId&gt;
+    &lt;artifactId&gt;tkit-quarkus-metrics-test&lt;/artifactId&gt;
     &lt;version&gt;2.40.0&lt;/version&gt;
+    &lt;scope&gt;test&lt;/scope&gt;
 &lt;/dependency&gt;</code></pre>
 </div>
 </div>
+</div>
+<div class="sect2">
+<h3 id="_usage"><a class="anchor" href="#_usage"></a>Usage</h3>
+<div class="paragraph">
+<p>To work in @QuarkusIntegrationTest tests set the property</p>
+</div>
+<div class="paragraph">
+<p><strong>quarkus.test.enable-callbacks-for-integration-tests = true</strong></p>
+</div>
+<div class="paragraph">
+<p>in your application.properties.</p>
+</div>
+<div class="paragraph">
+<p>To deactivate the automated metrics tests use</p>
+</div>
+<div class="paragraph">
+<p><strong>-Dtkit.metrics-test.disabled=true</strong> as system property</p>
+</div>
+<div class="paragraph">
+<p>e.g.
+<strong>mvn clean verify -Dtkit.metrics-test.disabled=true</strong></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_metrics_tests"><a class="anchor" href="#_metrics_tests"></a>Metrics Tests</h3>
+<div class="paragraph">
+<p>To registry default metrics tests you need to add this library to the <code>maven-surefire-plugin</code> class-path.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">&lt;plugin&gt;
+    &lt;groupId&gt;org.apache.maven.plugins&lt;/groupId&gt;
+    &lt;artifactId&gt;maven-surefire-plugin&lt;/artifactId&gt;
+    &lt;configuration&gt;
+        &lt;dependenciesToScan&gt;
+            &lt;dependency&gt;org.tkit.quarkus.lib:tkit-quarkus-metrics-test&lt;/dependency&gt;
+        &lt;/dependenciesToScan&gt;
+    &lt;/configuration&gt;
+&lt;/plugin&gt;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This will start <code>org.tkit.quarkus.metrics.test.MetricsDynamicTest</code> be default.</p>
+</div>
+<div class="paragraph">
+<p>To run this test as an integration test, you need to add this class to your project:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">import io.quarkus.test.junit.QuarkusIntegrationTest;
+import org.tkit.quarkus.metrics.test.MetricsDynamicTest;
+
+@QuarkusIntegrationTest
+public class MetricsDynamicTestIT extends MetricsDynamicTest {
+
+}</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_configuration"><a class="anchor" href="#_configuration"></a>Configuration</h3>
+<div class="paragraph configuration-legend">
+<p><span class="icon"><i class="fa fa-lock" title="Fixed at build time"></i></span> Configuration property fixed at build time - All other configuration properties are overridable at runtime</p>
+</div>
+<table class="tableblock frame-all grid-all stretch configuration-reference searchable">
+<colgroup>
+<col style="width: 80%;">
+<col style="width: 10%;">
+<col style="width: 10%;">
+</colgroup>
+<tbody>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock"><span class="header-title">Configuration property</span></p></th>
+<th class="tableblock halign-left valign-middle"><p class="tableblock">Type</p></th>
+<th class="tableblock halign-left valign-middle"><p class="tableblock">Default</p></th>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><a id="tkit-quarkus-metrics-test_tkit-metrics-test-disabled"></a> <span class="property-path"><a href="#tkit-quarkus-metrics-test_tkit-metrics-test-disabled"><code>tkit.metrics-test.disabled</code></a></span></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>This property is used to disable MetricsDynamicTest and must be configured in the maven-surefire-plugin.</p>
+</div>
+<div class="paragraph">
+<p>Environment variable: <code>TKIT_METRICS_TEST_DISABLED</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">boolean</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><code>false</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><a id="tkit-quarkus-metrics-test_tkit-metrics-test-keys-keys"></a> <span class="property-path"><a href="#tkit-quarkus-metrics-test_tkit-metrics-test-keys-keys"><code>tkit.metrics-test.keys."keys"</code></a></span></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>This property is used to define a list of metric keys. Key is prefix of the system property. Test will check if key exists with <code>startWith</code> method.</p>
+</div>
+<div class="paragraph">
+<p>Environment variable: <code>TKIT_METRICS_TEST_KEYS__KEYS_</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Map&lt;String,List&lt;String&gt;&gt;</p></td>
+<td class="tableblock halign-left valign-middle"></td>
+</tr>
+</tbody>
+</table>
 </div>
 </div>
 </div>

@@ -89,13 +89,22 @@
     <a class="nav-link" href="tkit-quarkus-rest-context.html">Rest Context Extension</a>
   </li>
   <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="tkit-quarkus-oidc-health.html">OIDC health check Extension</a>
+  </li>
+  <li class="nav-item" data-depth="1">
     <a class="nav-link" href="tkit-quarkus-security.html">Rest Security</a>
   </li>
   <li class="nav-item" data-depth="1">
     <a class="nav-link" href="tkit-quarkus-security-test.html">Rest Security Tests</a>
   </li>
   <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="tkit-quarkus-metrics-test.html">Metrics Tests</a>
+  </li>
+  <li class="nav-item" data-depth="1">
     <a class="nav-link" href="tkit-quarkus-test.html">Tests</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="tkit-quarkus-agroal.html">Agroal</a>
   </li>
 </ul>
   </li>
@@ -165,7 +174,7 @@
 <pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">&lt;dependency&gt;
     &lt;groupId&gt;org.tkit.quarkus.lib&lt;/groupId&gt;
     &lt;artifactId&gt;tkit-quarkus-jpa-tenant&lt;/artifactId&gt;
-    &lt;version&gt;2.36.0&lt;/version&gt;
+    &lt;version&gt;2.40.0&lt;/version&gt;
 &lt;/dependency&gt;</code></pre>
 </div>
 </div>
@@ -215,6 +224,40 @@ This will be not use if tenant is set in the <code>ApplicationContext</code>. Se
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><code>default</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><a id="tkit-quarkus-jpa-tenant_tkit-jpa-tenant-root-enabled"></a> <span class="property-path"><a href="#tkit-quarkus-jpa-tenant_tkit-jpa-tenant-root-enabled"><code>tkit.jpa.tenant.root.enabled</code></a></span></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>Root tenant resolver enabled.</p>
+</div>
+<div class="paragraph">
+<p>Environment variable: <code>TKIT_JPA_TENANT_ROOT_ENABLED</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">boolean</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><code>false</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><a id="tkit-quarkus-jpa-tenant_tkit-jpa-tenant-root-value"></a> <span class="property-path"><a href="#tkit-quarkus-jpa-tenant_tkit-jpa-tenant-root-value"><code>tkit.jpa.tenant.root.value</code></a></span></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>Root tenant resolver value.</p>
+</div>
+<div class="paragraph">
+<p>Environment variable: <code>TKIT_JPA_TENANT_ROOT_VALUE</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><code>*</code></p></td>
 </tr>
 </tbody>
 </table>

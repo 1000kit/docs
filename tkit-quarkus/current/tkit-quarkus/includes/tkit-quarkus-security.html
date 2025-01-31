@@ -89,13 +89,22 @@
     <a class="nav-link" href="../tkit-quarkus-rest-context.html">Rest Context Extension</a>
   </li>
   <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../tkit-quarkus-oidc-health.html">OIDC health check Extension</a>
+  </li>
+  <li class="nav-item" data-depth="1">
     <a class="nav-link" href="../tkit-quarkus-security.html">Rest Security</a>
   </li>
   <li class="nav-item" data-depth="1">
     <a class="nav-link" href="../tkit-quarkus-security-test.html">Rest Security Tests</a>
   </li>
   <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../tkit-quarkus-metrics-test.html">Metrics Tests</a>
+  </li>
+  <li class="nav-item" data-depth="1">
     <a class="nav-link" href="../tkit-quarkus-test.html">Tests</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../tkit-quarkus-agroal.html">Agroal</a>
   </li>
 </ul>
   </li>
@@ -173,6 +182,74 @@
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">boolean</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><code>true</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><a id="tkit-quarkus-security_tkit-security-events-authorization-log"></a> <span class="property-path"><a href="#tkit-quarkus-security_tkit-security-events-authorization-log"><code>tkit.security.events.authorization.log</code></a></span></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>Log security events</p>
+</div>
+<div class="paragraph">
+<p>Environment variable: <code>TKIT_SECURITY_EVENTS_AUTHORIZATION_LOG</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">boolean</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><code>true</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><a id="tkit-quarkus-security_tkit-security-events-authorization-template"></a> <span class="property-path"><a href="#tkit-quarkus-security_tkit-security-events-authorization-template"><code>tkit.security.events.authorization.template</code></a></span></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>Message template 1 - request method 2 - request path 3 - principal name</p>
+</div>
+<div class="paragraph">
+<p>Environment variable: <code>TKIT_SECURITY_EVENTS_AUTHORIZATION_TEMPLATE</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><code>Authorization failed, response 403, request %1$s %2$s</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><a id="tkit-quarkus-security_tkit-security-events-authentication-log"></a> <span class="property-path"><a href="#tkit-quarkus-security_tkit-security-events-authentication-log"><code>tkit.security.events.authentication.log</code></a></span></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>Log security events</p>
+</div>
+<div class="paragraph">
+<p>Environment variable: <code>TKIT_SECURITY_EVENTS_AUTHENTICATION_LOG</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">boolean</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><code>true</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><a id="tkit-quarkus-security_tkit-security-events-authentication-template"></a> <span class="property-path"><a href="#tkit-quarkus-security_tkit-security-events-authentication-template"><code>tkit.security.events.authentication.template</code></a></span></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>Message template 1 - request method 2 - request path</p>
+</div>
+<div class="paragraph">
+<p>Environment variable: <code>TKIT_SECURITY_EVENTS_AUTHENTICATION_TEMPLATE</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><code>Authentication failed, response 401, request %1$s %2$s</code></p></td>
 </tr>
 </tbody>
 </table>

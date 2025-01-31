@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <title>Untitled :: 1000kit Docs</title>
-    <link rel="canonical" href="https://1000kit.github.io/tkit-quarkus/current/tkit-quarkus/includes/tkit-quarkus-jpa-tenant.html">
+    <link rel="canonical" href="https://1000kit.github.io/tkit-quarkus/current/tkit-quarkus/includes/tkit-quarkus-metrics-test.html">
     <meta name="generator" content="Antora 3.1.7">
     <link rel="stylesheet" href="../../../../_/css/site.css">
     <link href="../../../../_/css/fontawesome.css" rel="stylesheet" />
@@ -144,7 +144,7 @@
   <a href="../../../../index/current/index.html" class="home-link"></a>
 <nav class="breadcrumbs" aria-label="breadcrumbs">
 </nav>
-  <div class="edit-this-page"><a href="https://github.com/1000kit/tkit-quarkus/edit/main/docs/modules/tkit-quarkus/pages/includes/tkit-quarkus-jpa-tenant.adoc">Edit this Page</a></div>
+  <div class="edit-this-page"><a href="https://github.com/1000kit/tkit-quarkus/edit/main/docs/modules/tkit-quarkus/pages/includes/tkit-quarkus-metrics-test.adoc">Edit this Page</a></div>
   </div>
   <div class="content">
 <aside class="toc sidebar" data-title="Contents" data-levels="2">
@@ -168,32 +168,15 @@
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p><a id="tkit-quarkus-jpa-tenant_tkit-jpa-tenant-default"></a> <span class="property-path"><a href="#tkit-quarkus-jpa-tenant_tkit-jpa-tenant-default"><code>tkit.jpa.tenant.default</code></a></span></p>
+<p><a id="tkit-quarkus-metrics-test_tkit-metrics-test-disabled"></a> <span class="property-path"><a href="#tkit-quarkus-metrics-test_tkit-metrics-test-disabled"><code>tkit.metrics-test.disabled</code></a></span></p>
 </div>
 <div class="openblock description">
 <div class="content">
 <div class="paragraph">
-<p>Default tenant resolver value.</p>
+<p>This property is used to disable MetricsDynamicTest and must be configured in the maven-surefire-plugin.</p>
 </div>
 <div class="paragraph">
-<p>Environment variable: <code>TKIT_JPA_TENANT_DEFAULT</code></p>
-</div>
-</div>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock"><code>default</code></p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p><a id="tkit-quarkus-jpa-tenant_tkit-jpa-tenant-root-enabled"></a> <span class="property-path"><a href="#tkit-quarkus-jpa-tenant_tkit-jpa-tenant-root-enabled"><code>tkit.jpa.tenant.root.enabled</code></a></span></p>
-</div>
-<div class="openblock description">
-<div class="content">
-<div class="paragraph">
-<p>Root tenant resolver enabled.</p>
-</div>
-<div class="paragraph">
-<p>Environment variable: <code>TKIT_JPA_TENANT_ROOT_ENABLED</code></p>
+<p>Environment variable: <code>TKIT_METRICS_TEST_DISABLED</code></p>
 </div>
 </div>
 </div></div></td>
@@ -202,20 +185,20 @@
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p><a id="tkit-quarkus-jpa-tenant_tkit-jpa-tenant-root-value"></a> <span class="property-path"><a href="#tkit-quarkus-jpa-tenant_tkit-jpa-tenant-root-value"><code>tkit.jpa.tenant.root.value</code></a></span></p>
+<p><a id="tkit-quarkus-metrics-test_tkit-metrics-test-keys-keys"></a> <span class="property-path"><a href="#tkit-quarkus-metrics-test_tkit-metrics-test-keys-keys"><code>tkit.metrics-test.keys."keys"</code></a></span></p>
 </div>
 <div class="openblock description">
 <div class="content">
 <div class="paragraph">
-<p>Root tenant resolver value.</p>
+<p>This property is used to define a list of metric keys. Key is prefix of the system property. Test will check if key exists with <code>startWith</code> method.</p>
 </div>
 <div class="paragraph">
-<p>Environment variable: <code>TKIT_JPA_TENANT_ROOT_VALUE</code></p>
+<p>Environment variable: <code>TKIT_METRICS_TEST_KEYS__KEYS_</code></p>
 </div>
 </div>
 </div></div></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock"><code>*</code></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Map&lt;String,List&lt;String&gt;&gt;</p></td>
+<td class="tableblock halign-left valign-middle"></td>
 </tr>
 </tbody>
 </table>

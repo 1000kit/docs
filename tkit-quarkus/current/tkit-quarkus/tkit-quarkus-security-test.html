@@ -89,13 +89,22 @@
     <a class="nav-link" href="tkit-quarkus-rest-context.html">Rest Context Extension</a>
   </li>
   <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="tkit-quarkus-oidc-health.html">OIDC health check Extension</a>
+  </li>
+  <li class="nav-item" data-depth="1">
     <a class="nav-link" href="tkit-quarkus-security.html">Rest Security</a>
   </li>
   <li class="nav-item is-current-page" data-depth="1">
     <a class="nav-link" href="tkit-quarkus-security-test.html">Rest Security Tests</a>
   </li>
   <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="tkit-quarkus-metrics-test.html">Metrics Tests</a>
+  </li>
+  <li class="nav-item" data-depth="1">
     <a class="nav-link" href="tkit-quarkus-test.html">Tests</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="tkit-quarkus-agroal.html">Agroal</a>
   </li>
 </ul>
   </li>
@@ -165,7 +174,7 @@
 <pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">&lt;dependency&gt;
     &lt;groupId&gt;org.tkit.quarkus.lib&lt;/groupId&gt;
     &lt;artifactId&gt;tkit-quarkus-security-test&lt;/artifactId&gt;
-    &lt;version&gt;2.36.0&lt;/version&gt;
+    &lt;version&gt;2.40.0&lt;/version&gt;
     &lt;scope&gt;test&lt;/scope&gt;
 &lt;/dependency&gt;</code></pre>
 </div>
@@ -194,18 +203,46 @@
 </div>
 </div>
 <div class="sect2">
-<h3 id="_security_tests"><a class="anchor" href="#_security_tests"></a>Security Tests</h3>
+<h3 id="_openapi_security_tests"><a class="anchor" href="#_openapi_security_tests"></a>OpenAPI Security Tests</h3>
+<div class="paragraph">
+<p>To registry default security tests you need to add this library to the <code>maven-surefire-plugin</code> class-path.</p>
+</div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@QuarkusTest
-public class SecurityTest extends AbstractSecurityTest {
-    @Override
-    public SecurityTestConfig getConfig() {
-        SecurityTestConfig config = new SecurityTestConfig();
-        config.addConfig("write", "/users/1", 200, List.of("ocx-user:write"), "post");
-        config.addConfig("read", "/users/1", 200, List.of("ocx-user:read"), "get");
-        return config;
-    }
+<pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">&lt;plugin&gt;
+    &lt;groupId&gt;org.apache.maven.plugins&lt;/groupId&gt;
+    &lt;artifactId&gt;maven-surefire-plugin&lt;/artifactId&gt;
+    &lt;configuration&gt;
+        &lt;systemPropertyVariables&gt;
+            &lt;tkit.metrics-test.keys.quarkus.datasource&gt;agroal_awaiting_count,agroal_max_used_count,agroal_creation_time_max_milliseconds,agroal_destroy_count_total&lt;/tkit.metrics-test.keys.quarkus.datasource&gt;
+            &lt;tkit.metrics-test.keys.quarkus.hibernate-orm&gt;hibernate_transactions_total,hibernate_query_executions_total&lt;/tkit.metrics-test.keys.quarkus.hibernate-orm&gt;
+            &lt;tkit.metrics-test.keys.quarkus.http&gt;http_server_requests_seconds_count,http_server_requests_seconds_max&lt;/tkit.metrics-test.keys.quarkus.http&gt;
+            &lt;tkit.metrics-test.keys.quarkus.rest-client&gt;http_client_requests_seconds_count,http_client_requests_seconds_max&lt;/tkit.metrics-test.keys.quarkus.rest-client&gt;
+        &lt;/systemPropertyVariables&gt;
+        &lt;dependenciesToScan&gt;
+            &lt;dependency&gt;org.tkit.quarkus.lib:tkit-quarkus-security-test&lt;/dependency&gt;
+        &lt;/dependenciesToScan&gt;
+    &lt;/configuration&gt;
+&lt;/plugin&gt;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This will start <code>org.tkit.quarkus.security.test.openapi.SecurityDynamicTest</code> be default.</p>
+</div>
+<div class="paragraph">
+<p>In this example, we also enable some metrics. For example <code>&lt;tkit.metrics-test.keys.quarkus.hibernate-orm&gt;</code> configuration. If the test finds a system property that starts with a <code>quarkus.hibernate-orm</code>, <code>hibernate_transactions_total</code> metric is mandatory, and if the test does not find this metric key, it fails.</p>
+</div>
+<div class="paragraph">
+<p>To run this test as an integration test, you need to add this class to your project:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">import io.quarkus.test.junit.QuarkusIntegrationTest;
+import org.tkit.quarkus.security.test.openapi.SecurityDynamicTest;
+
+@QuarkusIntegrationTest
+public class SecurityDynamicTestIT extends SecurityDynamicTest {
+
 }</code></pre>
 </div>
 </div>
@@ -253,6 +290,60 @@ public class UserRestControllerTest {
 </div>
 </div>
 </div>
+</div>
+<div class="sect2">
+<h3 id="_configuration"><a class="anchor" href="#_configuration"></a>Configuration</h3>
+<div class="paragraph configuration-legend">
+<p><span class="icon"><i class="fa fa-lock" title="Fixed at build time"></i></span> Configuration property fixed at build time - All other configuration properties are overridable at runtime</p>
+</div>
+<table class="tableblock frame-all grid-all stretch configuration-reference searchable">
+<colgroup>
+<col style="width: 80%;">
+<col style="width: 10%;">
+<col style="width: 10%;">
+</colgroup>
+<tbody>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock"><span class="header-title">Configuration property</span></p></th>
+<th class="tableblock halign-left valign-middle"><p class="tableblock">Type</p></th>
+<th class="tableblock halign-left valign-middle"><p class="tableblock">Default</p></th>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><a id="tkit-quarkus-security-test_tkit-security-test-openapi-disable-value"></a> <span class="property-path"><a href="#tkit-quarkus-security-test_tkit-security-test-openapi-disable-value"><code>tkit.security-test.openapi.disable-value</code></a></span></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>This property is used to disable SecurityDynamicTest and must be configured in the maven-surefire-plugin. Value to be evaluated by regex. For example ${project.artifactId}</p>
+</div>
+<div class="paragraph">
+<p>Environment variable: <code>TKIT_SECURITY_TEST_OPENAPI_DISABLE_VALUE</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
+<td class="tableblock halign-left valign-middle"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><a id="tkit-quarkus-security-test_tkit-security-test-openapi-disable-regex"></a> <span class="property-path"><a href="#tkit-quarkus-security-test_tkit-security-test-openapi-disable-regex"><code>tkit.security-test.openapi.disable-regex</code></a></span></p>
+</div>
+<div class="openblock description">
+<div class="content">
+<div class="paragraph">
+<p>This property is used to disable SecurityDynamicTest and must be configured in the maven-surefire-plugin. Regex to evaluate value to disable. For example <code>.*(?&lt;!-bff)$</code> enable only for project ending with -bff suffix.</p>
+</div>
+<div class="paragraph">
+<p>Environment variable: <code>TKIT_SECURITY_TEST_OPENAPI_DISABLE_REGEX</code></p>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
+<td class="tableblock halign-left valign-middle"></td>
+</tr>
+</tbody>
+</table>
 </div>
 </div>
 </div>
