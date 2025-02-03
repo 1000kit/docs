@@ -86,22 +86,22 @@
     <a class="nav-link" href="tkit-quarkus-rest.html">Rest Extension</a>
   </li>
   <li class="nav-item" data-depth="1">
-    <a class="nav-link" href="tkit-quarkus-rest-context.html">Rest Context Extension</a>
+    <a class="nav-link" href="tkit-quarkus-rest-context.html">Rest Context</a>
   </li>
   <li class="nav-item" data-depth="1">
-    <a class="nav-link" href="tkit-quarkus-oidc-health.html">OIDC health check Extension</a>
+    <a class="nav-link" href="tkit-quarkus-oidc-health.html">OIDC health check</a>
   </li>
   <li class="nav-item" data-depth="1">
     <a class="nav-link" href="tkit-quarkus-security.html">Rest Security</a>
   </li>
   <li class="nav-item" data-depth="1">
-    <a class="nav-link" href="tkit-quarkus-security-test.html">Rest Security Tests</a>
+    <a class="nav-link" href="tkit-quarkus-security-test.html">Security Tests</a>
   </li>
   <li class="nav-item is-current-page" data-depth="1">
     <a class="nav-link" href="tkit-quarkus-metrics-test.html">Metrics Tests</a>
   </li>
   <li class="nav-item" data-depth="1">
-    <a class="nav-link" href="tkit-quarkus-test.html">Tests</a>
+    <a class="nav-link" href="tkit-quarkus-test.html">Common Tests</a>
   </li>
   <li class="nav-item" data-depth="1">
     <a class="nav-link" href="tkit-quarkus-agroal.html">Agroal</a>
@@ -213,6 +213,12 @@
     &lt;groupId&gt;org.apache.maven.plugins&lt;/groupId&gt;
     &lt;artifactId&gt;maven-surefire-plugin&lt;/artifactId&gt;
     &lt;configuration&gt;
+        &lt;systemPropertyVariables&gt;
+            &lt;tkit.metrics-test.keys.quarkus.datasource&gt;agroal_awaiting_count,agroal_max_used_count,agroal_creation_time_max_milliseconds,agroal_destroy_count_total&lt;/tkit.metrics-test.keys.quarkus.datasource&gt;
+            &lt;tkit.metrics-test.keys.quarkus.hibernate-orm&gt;hibernate_transactions_total,hibernate_query_executions_total&lt;/tkit.metrics-test.keys.quarkus.hibernate-orm&gt;
+            &lt;tkit.metrics-test.keys.quarkus.http&gt;http_server_requests_seconds_count,http_server_requests_seconds_max&lt;/tkit.metrics-test.keys.quarkus.http&gt;
+            &lt;tkit.metrics-test.keys.quarkus.rest-client&gt;http_client_requests_seconds_count,http_client_requests_seconds_max&lt;/tkit.metrics-test.keys.quarkus.rest-client&gt;
+        &lt;/systemPropertyVariables&gt;
         &lt;dependenciesToScan&gt;
             &lt;dependency&gt;org.tkit.quarkus.lib:tkit-quarkus-metrics-test&lt;/dependency&gt;
         &lt;/dependenciesToScan&gt;
@@ -222,6 +228,9 @@
 </div>
 <div class="paragraph">
 <p>This will start <code>org.tkit.quarkus.metrics.test.MetricsDynamicTest</code> be default.</p>
+</div>
+<div class="paragraph">
+<p>In this example, we also enable some metrics. For example <code>&lt;tkit.metrics-test.keys.quarkus.hibernate-orm&gt;</code> configuration. If the test finds a system property that starts with a <code>quarkus.hibernate-orm</code>, <code>hibernate_transactions_total</code> metric is mandatory, and if the test does not find this metric key, it fails.</p>
 </div>
 <div class="paragraph">
 <p>To run this test as an integration test, you need to add this class to your project:</p>

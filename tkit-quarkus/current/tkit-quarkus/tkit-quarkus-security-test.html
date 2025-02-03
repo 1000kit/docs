@@ -86,22 +86,22 @@
     <a class="nav-link" href="tkit-quarkus-rest.html">Rest Extension</a>
   </li>
   <li class="nav-item" data-depth="1">
-    <a class="nav-link" href="tkit-quarkus-rest-context.html">Rest Context Extension</a>
+    <a class="nav-link" href="tkit-quarkus-rest-context.html">Rest Context</a>
   </li>
   <li class="nav-item" data-depth="1">
-    <a class="nav-link" href="tkit-quarkus-oidc-health.html">OIDC health check Extension</a>
+    <a class="nav-link" href="tkit-quarkus-oidc-health.html">OIDC health check</a>
   </li>
   <li class="nav-item" data-depth="1">
     <a class="nav-link" href="tkit-quarkus-security.html">Rest Security</a>
   </li>
   <li class="nav-item is-current-page" data-depth="1">
-    <a class="nav-link" href="tkit-quarkus-security-test.html">Rest Security Tests</a>
+    <a class="nav-link" href="tkit-quarkus-security-test.html">Security Tests</a>
   </li>
   <li class="nav-item" data-depth="1">
     <a class="nav-link" href="tkit-quarkus-metrics-test.html">Metrics Tests</a>
   </li>
   <li class="nav-item" data-depth="1">
-    <a class="nav-link" href="tkit-quarkus-test.html">Tests</a>
+    <a class="nav-link" href="tkit-quarkus-test.html">Common Tests</a>
   </li>
   <li class="nav-item" data-depth="1">
     <a class="nav-link" href="tkit-quarkus-agroal.html">Agroal</a>
@@ -145,7 +145,7 @@
 <nav class="breadcrumbs" aria-label="breadcrumbs">
   <ul>
     <li><a href="index.html">1000kit Quarkus</a></li>
-    <li><a href="tkit-quarkus-security-test.html">Rest Security Tests</a></li>
+    <li><a href="tkit-quarkus-security-test.html">Security Tests</a></li>
   </ul>
 </nav>
   <div class="edit-this-page"><a href="https://github.com/1000kit/tkit-quarkus/edit/main/docs/modules/tkit-quarkus/pages/tkit-quarkus-security-test.adoc">Edit this Page</a></div>
@@ -183,23 +183,7 @@
 <div class="sect2">
 <h3 id="_usage"><a class="anchor" href="#_usage"></a>Usage</h3>
 <div class="paragraph">
-<p>To work in @QuarkusIntegrationTest tests set the property</p>
-</div>
-<div class="paragraph">
-<p><strong>quarkus.test.enable-callbacks-for-integration-tests = true</strong></p>
-</div>
-<div class="paragraph">
-<p>in your application.properties.</p>
-</div>
-<div class="paragraph">
-<p>To deactivate the automated security tests of AbstractSecurityTests use</p>
-</div>
-<div class="paragraph">
-<p><strong>-Dtkit.security-test.disabled=true</strong> as system property</p>
-</div>
-<div class="paragraph">
-<p>e.g.
-<strong>mvn clean verify -Dtkit.security-test.disabled=true</strong></p>
+<p>To work in <code>@QuarkusIntegrationTest</code> tests set the property <code>quarkus.test.enable-callbacks-for-integration-tests = true</code> in your application.properties.</p>
 </div>
 </div>
 <div class="sect2">
@@ -213,12 +197,6 @@
     &lt;groupId&gt;org.apache.maven.plugins&lt;/groupId&gt;
     &lt;artifactId&gt;maven-surefire-plugin&lt;/artifactId&gt;
     &lt;configuration&gt;
-        &lt;systemPropertyVariables&gt;
-            &lt;tkit.metrics-test.keys.quarkus.datasource&gt;agroal_awaiting_count,agroal_max_used_count,agroal_creation_time_max_milliseconds,agroal_destroy_count_total&lt;/tkit.metrics-test.keys.quarkus.datasource&gt;
-            &lt;tkit.metrics-test.keys.quarkus.hibernate-orm&gt;hibernate_transactions_total,hibernate_query_executions_total&lt;/tkit.metrics-test.keys.quarkus.hibernate-orm&gt;
-            &lt;tkit.metrics-test.keys.quarkus.http&gt;http_server_requests_seconds_count,http_server_requests_seconds_max&lt;/tkit.metrics-test.keys.quarkus.http&gt;
-            &lt;tkit.metrics-test.keys.quarkus.rest-client&gt;http_client_requests_seconds_count,http_client_requests_seconds_max&lt;/tkit.metrics-test.keys.quarkus.rest-client&gt;
-        &lt;/systemPropertyVariables&gt;
         &lt;dependenciesToScan&gt;
             &lt;dependency&gt;org.tkit.quarkus.lib:tkit-quarkus-security-test&lt;/dependency&gt;
         &lt;/dependenciesToScan&gt;
@@ -228,9 +206,6 @@
 </div>
 <div class="paragraph">
 <p>This will start <code>org.tkit.quarkus.security.test.openapi.SecurityDynamicTest</code> be default.</p>
-</div>
-<div class="paragraph">
-<p>In this example, we also enable some metrics. For example <code>&lt;tkit.metrics-test.keys.quarkus.hibernate-orm&gt;</code> configuration. If the test finds a system property that starts with a <code>quarkus.hibernate-orm</code>, <code>hibernate_transactions_total</code> metric is mandatory, and if the test does not find this metric key, it fails.</p>
 </div>
 <div class="paragraph">
 <p>To run this test as an integration test, you need to add this class to your project:</p>
@@ -244,6 +219,26 @@ import org.tkit.quarkus.security.test.openapi.SecurityDynamicTest;
 public class SecurityDynamicTestIT extends SecurityDynamicTest {
 
 }</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This test can be disabled if the value of the system property <code>tkit.security-test.openapi.disable-value</code> matches the regular expression of the system property <code>tkit.security-test.openapi.disable-regex</code>.</p>
+</div>
+<div class="paragraph">
+<p>For example, this test is only disabled for projects with the prefix <code>E</code>.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">&lt;plugin&gt;
+    &lt;groupId&gt;org.apache.maven.plugins&lt;/groupId&gt;
+    &lt;artifactId&gt;maven-surefire-plugin&lt;/artifactId&gt;
+    &lt;configuration&gt;
+        &lt;systemPropertyVariables&gt;
+            &lt;tkit.security-test.openapi.disable-value&gt;${project.artifactId}&lt;/tkit.security-test.openapi.disable-value&gt;
+            &lt;tkit.security-test.openapi.disable-regex&gt;E.*&lt;/tkit.security-test.openapi.disable-regex&gt;
+        &lt;/systemPropertyVariables&gt;
+    &lt;/configuration&gt;
+&lt;/plugin&gt;</code></pre>
 </div>
 </div>
 </div>
